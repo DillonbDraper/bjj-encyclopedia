@@ -12,7 +12,7 @@ export const AppViews = (props) => {
                     props => <VideoList {...props} />
                 } />
                 <Route path="/videos/:videoId(\d+)" render={
-                    props => <VideoDetail {...props} />
+                    props => <VideoDetail {...props}/>
                 } />
             </VideoProvider>
         </>
