@@ -5,37 +5,41 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import './videoCard.css'
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 700,
+        maxWidth: 700,
     },
     media: {
-      height: 140,
+        height: 140,
     },
-  });
+});
 
-export const Video = ({ title, thumbnail}) => {
+export const Video = (props) => {
     const classes = useStyles();
+    const myLink = `/videos/${props.id}`
     return (
         <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={thumbnail}
-          title={title}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
+            <Link to={myLink}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={props.thumbnail}
+                        title={props.title}
+                    />
+                </CardActionArea>
+            </Link>
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {props.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    The Butterfly Guard sweep from the 'Grapplearts Guard Sweeps' App for iPhone and Android: https://www.grapplearts.com/grapplear....  This module has now been rebuilt and expanded to include step-by-step breakdowns of 32 powerful guard sweeps that get you from the bottom to the top in Brazilian jiu-jitsu, submission grappling and MMA.
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          The Butterfly Guard sweep from the 'Grapplearts Guard Sweeps' App for iPhone and Android: https://www.grapplearts.com/grapplear....  This module has now been rebuilt and expanded to include step-by-step breakdowns of 32 powerful guard sweeps that get you from the bottom to the top in Brazilian jiu-jitsu, submission grappling and MMA.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      </Card>
+            </CardContent>
+        </Card>
     )
 }

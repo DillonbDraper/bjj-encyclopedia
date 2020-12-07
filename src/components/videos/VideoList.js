@@ -13,10 +13,10 @@ export const VideoList = props => {
         <div className="videos">
             <h1>Videos</h1>
 
-            <article className="employeeList">
+            <article className="videoList">
                 {
                     videos.map(video => {
-                        return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} />
+                        return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id}/>
                     })
                 }
             </article>
