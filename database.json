@@ -1,0 +1,280 @@
+{
+    "videos": [
+        {
+            "id": 1,
+            "url": "",
+            "title": "",
+            "techniqueId": ""
+        }
+    ],
+    "position": [
+        {
+            "id": 1,
+            "name": "Guard"
+        },
+        {
+            "id": 2,
+            "name": "Half Guard"
+        },
+        {
+            "id": 3,
+            "name": "Standing"
+        },
+        {
+            "id": 4,
+            "name": "Mount"
+        },
+        {
+            "id": 5,
+            "name": "Side Control"
+        },
+        {
+            "id": 6,
+            "name": "Back"
+        },
+        {
+            "id": 7,
+            "name": "Turtle"
+        },
+        {
+            "id": 8,
+            "name": "Leg Entanglement"
+        },
+        {
+            "id": 9,
+            "name": "Knee on Belly"
+        }
+    ],
+    "subpostiion": [
+        {
+            "id": 1,
+            "name": "Closed Guard",
+            "positionId": 1
+        },
+        {
+            "id": 2,
+            "name": "Open Guard",
+            "positionId": 1
+        },
+        {
+            "id": 3,
+            "name": "Butterfly Guard",
+            "positionId": 1
+        },
+        {
+            "id": 4,
+            "name": "De La Riva Guard",
+            "positionId": 1
+        },
+        {
+            "id": 5,
+            "name": "Reverse De La Riva Guard",
+            "positionId": 1
+        },
+        {
+            "id": 6,
+            "name": "X Guard",
+            "positionId": 1
+        },
+        {
+            "id": 7,
+            "name": "Single Leg X Guard",
+            "positionId": 1
+        },
+        {
+            "id": 8,
+            "name": "50/50 (Guard)",
+            "positionId": 1
+        },
+        {
+            "id": 9,
+            "name": "Lapel Guard(s)",
+            "positionId": 1
+        },
+        {
+            "id": 10,
+            "name": "Knee Shield",
+            "positionId": 2
+        },
+        {
+            "id": 11,
+            "name": "Deep Half Guard",
+            "positionId": 2
+        },
+        {
+            "id": 12,
+            "name": "Classic Half Guard",
+            "positionId": 2
+        },
+        {
+            "id": 13,
+            "name": "Quarter Guard",
+            "positionId": 4
+        },
+        {
+            "id": 14,
+            "name": "Flattened Half Guard",
+            "positionId": 2
+        },
+        {
+            "id": 15,
+            "name": "Low Mount",
+            "positionId": 4
+        },
+        {
+            "id": 16,
+            "name": "High Mount",
+            "positionId": 4
+        },
+        {
+            "id": 17,
+            "name": "S Mount",
+            "positionId": 4
+        },
+        {
+            "id": 18,
+            "name": "Technical Mount",
+            "positionId": 4
+        },
+        {
+            "id": 19,
+            "name": "Vegan Mount",
+            "positionId": 4
+        },
+        {
+            "id": 20,
+            "name": "Classic Side Control",
+            "positionId": 5
+        },
+        {
+            "id": 21,
+            "name": "Kesa/Kuzure Kesa-Gatame",
+            "positionId": 5
+        },
+        {
+            "id": 22,
+            "name": "Reverse Kesa-Gatame",
+            "positionId": 5
+        },
+        {
+            "id": 23,
+            "name": "North/South",
+            "positionId": 5
+        },
+        {
+            "id": 24,
+            "name": "Leg Drag Position",
+            "positionId": 5
+        },
+        {
+            "id": 25,
+            "name": "Back Mount with Hooks",
+            "positionId": 6
+        },
+        {
+            "id": 26,
+            "name": "Crucifix",
+            "positionId": 6
+        },
+        {
+            "id": 27,
+            "name": "Traditional Turtle",
+            "positionId": 7
+        },
+        {
+            "id": 28,
+            "name": "Front Headlock",
+            "positionId": 7
+        },
+        {
+            "id": 29,
+            "name": "Ashi Garami",
+            "positionId": 8
+        },
+        {
+            "id": 30,
+            "name": "Double Ashi Garami",
+            "positionId": 8
+        },
+        {
+            "id": 31,
+            "name": "The Saddle/Reverse Sankaku",
+            "positionId": 8
+        },
+        {
+            "id": 32,
+            "name": "50/50",
+            "positionId": 8
+        },
+        {
+            "id": 33,
+            "name": "50/50",
+            "positionId": 8
+        },
+        {
+            "id": 34,
+            "name": "Reap",
+            "positionId": 8
+        },
+        {
+            "id": 35,
+            "name": "Berimbolo/Crab Ride",
+            "positionId": 8
+        },
+        {
+            "id": 36,
+            "name": "The Truck",
+            "positionId": 8
+        },
+        {
+            "id": 37,
+            "name": "Butterfly Ashi",
+            "positionId": 8
+        },
+        {
+            "id": 38,
+            "name": "Standard Knee On Belly",
+            "positionId": 9
+        },
+        {
+            "id": 39,
+            "name": "Reverse Knee on Belly",
+            "positionId": 9
+        }
+    ],
+    "orientation": [
+        {
+            "id": 1,
+            "dominant": true
+        },
+        {
+            "id": 2,
+            "dominant": false
+        }
+    ],
+    "notes": [
+        {
+            "id": 1,
+            "text": "",
+            "time": "",
+            "videoId": 1,
+            "userId": 1
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "",
+            "password": "",
+            "email": ""
+        }
+    ],
+    "techniques": [
+        {
+            "id": 1,
+            "positionId": 1,
+            "orientationId": 1,
+            "subpositionId": 1
+        }
+    ]
+}
