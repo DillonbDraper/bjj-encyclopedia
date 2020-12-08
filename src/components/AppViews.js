@@ -6,28 +6,34 @@ import { VideoDetail } from "./videos/VideoDetail"
 import { Logo } from "./Logo"
 import { NoteList } from "./notes/NoteList"
 import { NoteProvider } from "./notes/NoteProvider"
+import { TechniqueList } from "./techniques/TechniqueList"
+import { TechniqueProvider } from "./techniques/TechniqueProvider"
 
 export const AppViews = (props) => {
     return (
         <>
             <VideoProvider>
-                <Route exact path="/" render={
-                    props =>
-                    
-                    <>
-                    <Logo />
-                    <VideoList {...props} />
-                    </>
-                } />
-                <NoteProvider>
-                <Route path="/videos/:videoId(\d+)" render={
-                    props => 
-                    <>
-                    <VideoDetail {...props}/>
-                    <NoteList {...props}/>
-                    </>
-                } />
-                </NoteProvider>
+                <TechniqueProvider>
+                    <Route exact path="/" render={
+                        props =>
+
+                            <>
+                                <Logo />
+                                <VideoList {...props} />
+                                <TechniqueList />
+                            </>
+                    } />
+                    <NoteProvider>
+                        <Route path="/videos/:videoId(\d+)" render={
+                            props =>
+                                <>
+                                    <VideoDetail {...props} />
+                                    <NoteList {...props} />
+                                    <TechniqueList />
+                                </>
+                        } />
+                    </NoteProvider>
+                </TechniqueProvider>
             </VideoProvider>
         </>
     )
