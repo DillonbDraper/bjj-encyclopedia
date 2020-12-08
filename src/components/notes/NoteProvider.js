@@ -30,30 +30,24 @@ export const NoteProvider = (props) => {
         .then(getNotes)
 }
 
-const updateNote = noteId => {
-    return fetch(`http://localhost:8088/notes/${noteId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(note)
-    })
-        .then(getNotes)
-  }
+// const updateNote = noteId => {
+//     return fetch(`http://localhost:8088/notes/${noteId}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(note)
+//     })
+//         .then(getNotes)
+//   }
 
-  /*
-      You return a context provider which has the
-      `locations` state, the `addLocation` function,
-      and the `getLocation` function as keys. This
-      allows any child elements to access them.
-  */
   return (
-    <VideoContext.Provider value={
+    <NoteContext.Provider value={
       {
       notes, addNote, getNotes, deleteNote
       }
     }>
       {props.children}
-    </VideoContext.Provider>
+    </NoteContext.Provider>
   )
 }
