@@ -8,6 +8,7 @@ export const VideoDetail = (props) => {
     const [video, setVideo] = useState({})
 
     useEffect(() => {
+        debugger
         getVideos()
     }, [])
 
