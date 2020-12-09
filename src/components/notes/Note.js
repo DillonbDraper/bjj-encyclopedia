@@ -24,8 +24,6 @@ export const Note = (props) => {
                     <IconButton
                     onClick={() => {
                         setEditMode(true)
-                        console.log(props.text)
-                        console.log(props.id)
                     }} 
                     edge="end" 
                     aria-label="edit">

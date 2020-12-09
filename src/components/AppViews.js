@@ -8,31 +8,42 @@ import { NoteList } from "./notes/NoteList"
 import { NoteProvider } from "./notes/NoteProvider"
 import { TechniqueList } from "./techniques/TechniqueList"
 import { TechniqueProvider } from "./techniques/TechniqueProvider"
+import { PositionProvider } from "./dropdowns/PositionProvider"
+import { DropdownList } from "./dropdowns/DropdownList"
+import { OrientationProvider } from "./dropdowns/OrientationProvider"
+import { SubpositionProvider } from "./dropdowns/SubpositionProvider"
 
 export const AppViews = (props) => {
     return (
         <>
             <VideoProvider>
                 <TechniqueProvider>
-                    <Route exact path="/" render={
-                        props =>
+                    <PositionProvider>
+                        <OrientationProvider>
+                            <SubpositionProvider>
+                                <Route exact path="/" render={
+                                    props =>
 
-                            <>
-                                <Logo />
-                                <VideoList {...props} />
-                                <TechniqueList />
-                            </>
-                    } />
-                    <NoteProvider>
-                        <Route path="/videos/:videoId(\d+)" render={
-                            props =>
-                                <>
-                                    <VideoDetail {...props} />
-                                    <NoteList {...props} />
-                                    <TechniqueList />
-                                </>
-                        } />
-                    </NoteProvider>
+                                        <>
+                                            <Logo />
+                                            <VideoList {...props} />
+                                            <TechniqueList />
+                                            <DropdownList {...props} />
+                                        </>
+                                } />
+                                <NoteProvider>
+                                    <Route path="/videos/:videoId(\d+)" render={
+                                        props =>
+                                            <>
+                                                <VideoDetail {...props} />
+                                                <NoteList {...props} />
+                                                <TechniqueList />
+                                            </>
+                                    } />
+                                </NoteProvider>
+                            </SubpositionProvider>
+                        </OrientationProvider>
+                    </PositionProvider>
                 </TechniqueProvider>
             </VideoProvider>
         </>

@@ -17,7 +17,7 @@
       "gi": true
     }
   ],
-  "position": [
+  "positions": [
     {
       "id": 1,
       "name": "Guard"
@@ -55,7 +55,7 @@
       "name": "Knee on Belly"
     }
   ],
-  "subpostiions": [
+  "subpositions": [
     {
       "id": 1,
       "name": "Closed Guard",
@@ -272,7 +272,7 @@
     },
     {
       "id": 2,
-      "text": "I love butterfly",
+      "text": "Editing works and I am very elated",
       "time": "",
       "videoId": 1,
       "userId": 1
