@@ -8,20 +8,14 @@ export const VideoDetail = (props) => {
     const [video, setVideo] = useState({})
 
     useEffect(() => {
-        debugger
         getVideos()
     }, [])
 
     useEffect(() => {
-        const video = videos.find(vid=> vid.id === parseInt(props.match.params.videoId))
+        const video = videos.find(vid=> vid.id === parseInt(props.match.params.videoId)) || {}
         setVideo(video)
     }, [videos])
     
-
-    console.log(props.match.params.videoId)
-    console.log(videos)
-    console.log(video)
-
     return (
         <ReactPlayer url={video.url} controls={true}/>
     )

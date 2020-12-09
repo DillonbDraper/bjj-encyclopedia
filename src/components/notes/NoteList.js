@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { NoteContext } from "./NoteProvider"
 import { Note } from "./Note"
+import { NoteForm } from "./NoteForm"
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -15,7 +16,11 @@ const useStyles = makeStyles((theme) => ({
 export const NoteList = props => {
     const { notes, getNotes } = useContext(NoteContext)
 
+
+
     useEffect(() => getNotes(), [])
+
+    const [ add, setAdd ] = useState(false)
 
     const notesToRender = notes.filter(note => note.videoId === parseInt(props.match.params.videoId) && note.userId === parseInt(localStorage.getItem("grappler")))
 
@@ -25,7 +30,10 @@ export const NoteList = props => {
                 return <Note key={note.id} text={note.text} />
             })
             }
-                <Button color="primary">Add Note</Button>
+                <Button onClick={() => setAdd(true)} color="primary">Add Note</Button>
+              {
+                add ? <NoteForm videoNumber={props.match.params.videoId} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
+              }
         </>
     )
 

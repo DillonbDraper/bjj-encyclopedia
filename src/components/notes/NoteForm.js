@@ -3,25 +3,31 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { NoteContext } from "./NoteProvider"
 
-export const NoteForm = (props, note) => {
+export const NoteForm = ({videoNumber, noteAdd, noteSetAdd}) => {
     const text = useRef(null)
-
     const {notes, addNote, getNotes} = useContext(NoteContext)
 
-    const constructNewNote = note => {
+
+    const constructNewNote = () => {
         const userId = parseInt(localStorage.getItem("grappler"))
-        const videoId = parseInt(props.match.params.videoId)
+        const videoId = parseInt(videoNumber)
+
+        console.log(videoId)
+    console.log(userId)
+    console.log(text.current.value)
+
         if (text.current.value === null || text.current.value === undefined || text.current.value === "") {
             window.alert("Please enter a note before attempting to save")
         } else {
             const newNote = {
-                text,
+                text: text.current.value,
                 time: "",
                 videoId,
                 userId
             }
-
+            console.log(newNote)
             addNote(newNote)
+            noteSetAdd(false)
         }
     }
     
