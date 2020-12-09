@@ -27,7 +27,7 @@ export const NoteList = props => {
     return (
         <>
             {notesToRender.map(note => {
-                return <Note key={note.id} text={note.text} />
+                return <Note key={note.id} id={note.id} text={note.text} />
             })
             }
                 <Button onClick={() => setAdd(true)} color="primary">Add Note</Button>
