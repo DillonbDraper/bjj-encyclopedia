@@ -30,21 +30,21 @@ export const NoteProvider = (props) => {
         .then(getNotes)
 }
 
-// const updateNote = noteId => {
-//     return fetch(`http://localhost:8088/notes/${noteId}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(note)
-//     })
-//         .then(getNotes)
-//   }
+const updateNote = note => {
+    return fetch(`http://localhost:8088/notes/${note.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(note)
+    })
+        .then(getNotes)
+  }
 
   return (
     <NoteContext.Provider value={
       {
-      notes, addNote, getNotes, deleteNote
+      notes, addNote, getNotes, deleteNote, updateNote
       }
     }>
       {props.children}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -7,18 +7,28 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { NoteContext } from "./NoteProvider"
+import { NoteForm } from './NoteForm';
 
 export const Note = (props) => {
-    const { deleteNote, updateNote } = useContext(NoteContext)
+    const { deleteNote } = useContext(NoteContext)
+    const [ editMode, setEditMode ] = useState(false)
     return (
         <>
+            { editMode ? <NoteForm editMode={editMode} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""}
             <List>
                 <ListItem>
                     <ListItemText
                         primary={props.text}
                     />
                     <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="edit">
+                    <IconButton
+                    onClick={() => {
+                        setEditMode(true)
+                        console.log(props.text)
+                        console.log(props.id)
+                    }} 
+                    edge="end" 
+                    aria-label="edit">
                             <EditIcon />
                             
                     </IconButton>
