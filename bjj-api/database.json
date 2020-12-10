@@ -119,7 +119,7 @@
     {
       "id": 13,
       "name": "Quarter Guard",
-      "positionId": 4
+      "positionId": 2
     },
     {
       "id": 14,
@@ -213,11 +213,6 @@
     },
     {
       "id": 32,
-      "name": "50/50",
-      "positionId": 8
-    },
-    {
-      "id": 33,
       "name": "50/50",
       "positionId": 8
     },
