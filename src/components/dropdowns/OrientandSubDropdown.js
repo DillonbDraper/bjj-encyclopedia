@@ -20,6 +20,25 @@ export const OrientandSubDropdown = ({ positionValue }) => {
     filteredSubposition = subpositions.filter(sub => sub.positionId === positionValue.id)
     }
 
+
+    if (positionValue === null) {
+        return (
+        <> 
+            <Autocomplete
+            id="orientation"
+            options={[]} 
+             renderInput={(params) => <TextField {...params} label="Orientation" variant="outlined" />}
+             style={{ width: 300 }}
+             />
+            <Autocomplete 
+            id="subpositions"
+            options={[]}
+            renderInput={(params) => <TextField {...params} label="Subposition" variant="outlined" />}
+            style={{ width: 300 }}
+            />
+        
+        </>)
+    }
     return (
         <>
             <Autocomplete
