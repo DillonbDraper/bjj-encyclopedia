@@ -38,7 +38,7 @@ export const Video = (props) => {
                     {props.title}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    The Butterfly Guard sweep from the 'Grapplearts Guard Sweeps' App for iPhone and Android: https://www.grapplearts.com/grapplear....  This module has now been rebuilt and expanded to include step-by-step breakdowns of 32 powerful guard sweeps that get you from the bottom to the top in Brazilian jiu-jitsu, submission grappling and MMA.
+                    {props.description}
           </Typography>
             </CardContent>
         </Card>

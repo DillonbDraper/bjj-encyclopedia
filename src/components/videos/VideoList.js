@@ -16,7 +16,7 @@ export const VideoList = props => {
             <article className="videoList">
                 {
                     videos.map(video => {
-                        return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id}/>
+                        return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description}/>
                     })
                 }
             </article>
