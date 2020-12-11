@@ -10,8 +10,7 @@ export const DropdownList = props => {
 
     useEffect(() => getPositions(), [])
 
-    const [ positionValue, setpositionValue ] = useState({})
-
+    const [ positionValue, setpositionValue ] = useState("")
     return (
         <div className="dropdowns">
             <Autocomplete
@@ -19,8 +18,10 @@ export const DropdownList = props => {
               options={positions}
               getOptionLabel={(posish) => posish.name}
               style={{ width: 300 }}
-              value={positionValue}
-              onChange={(event, newValue) => setpositionValue(newValue)}
+              value={positionValue ? positionValue : "Hi there"}
+              onChange={(event, newValue) => {  
+                setpositionValue(newValue)
+                console.log(positionValue)}}
               renderInput={(params) => <TextField {...params} label="Position" variant="outlined" />}
             />
             {positionValue !== "" ? <OrientandSubDropdown key={1} positionValue={positionValue} /> : ""}

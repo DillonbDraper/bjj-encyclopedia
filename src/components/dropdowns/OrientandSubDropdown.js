@@ -9,6 +9,11 @@ export const OrientandSubDropdown = ({ positionValue }) => {
     const { subpositions, getSubpositions } = useContext(SubpositionContext)
 
     useEffect(() => getSubpositions().then(getOrientations), [])
+    useEffect(() => {
+        setOrientationValue("")
+        setsubpositionValue("")
+        console.log(orientationValue)
+    }, [positionValue])
 
     const [ orientationValue, setOrientationValue ] = useState({})
     const [ subpositionValue, setsubpositionValue ] = useState({})
