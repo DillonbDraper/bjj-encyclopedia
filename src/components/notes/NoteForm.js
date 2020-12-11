@@ -50,7 +50,7 @@ export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditM
                 </div>
             </fieldset>
 
-            <Button type="submit" onClick={evt => {
+            <Button variant ="outlined" type="submit" onClick={evt => {
                 evt.preventDefault()
                 constructNewNote()
             }

@@ -1,7 +1,6 @@
 {
   "videos": [
     {
-      
       "url": "https://www.youtube.com/watch?v=3aH8aNK08ds",
       "thumbnail": "https://img.youtube.com/vi/3aH8aNK08ds/0.jpg",
       "title": "Butterfly sweep from Butterfly Guard",
@@ -476,7 +475,7 @@
       "positionId": 3,
       "orientationId": 1,
       "subpositionId": 1
-    }, 
+    },
     {
       "id": 5,
       "name": "Inside Heel Hook Escape",

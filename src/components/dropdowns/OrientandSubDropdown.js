@@ -4,19 +4,13 @@ import { OrientationContext } from './OrientationProvider'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-export const OrientandSubDropdown = ({ positionValue }) => {
+export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrientationValue, subpositionValue, setsubpositionValue }) => {
     const { orientations, getOrientations } = useContext(OrientationContext)
     const { subpositions, getSubpositions } = useContext(SubpositionContext)
 
     useEffect(() => getSubpositions().then(getOrientations), [])
-    useEffect(() => {
-        setOrientationValue("")
-        setsubpositionValue("")
-        console.log(orientationValue)
-    }, [positionValue])
 
-    const [ orientationValue, setOrientationValue ] = useState({})
-    const [ subpositionValue, setsubpositionValue ] = useState({})
+
 
     let filteredSubposition = []
     if (positionValue === null) {
@@ -51,7 +45,6 @@ export const OrientandSubDropdown = ({ positionValue }) => {
                 disabled={positionValue.id === 3 ? true : false}
                 options={orientations}
                 getOptionLabel={(orient) => {
-                    console.log(orient)
                     if (orient.dominant === true && (positionValue.id === 1 || positionValue.id === 2 || positionValue.id === 4 || positionValue.id === 5 || positionValue.id === 7 || positionValue.id === 9)) {
                         return "Top"
                     } else if (orient.dominant === true && (positionValue.id === 6 || positionValue.id === 8)) {

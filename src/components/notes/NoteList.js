@@ -30,7 +30,7 @@ export const NoteList = props => {
                 return <Note key={note.id} id={note.id} text={note.text} videoNumber={props.match.params.videoId}/>
             })
             }
-                <Button onClick={() => setAdd(true)} color="primary">Add Note</Button>
+                <Button onClick={() => setAdd(true)} color="primary" variant="outlined">Add Note</Button>
               {
                 add ? <NoteForm videoNumber={props.match.params.videoId} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
