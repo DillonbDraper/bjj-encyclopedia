@@ -45,6 +45,7 @@ export const OrientandSubDropdown = ({ positionValue }) => {
             />
             <Autocomplete
                 id="subpositions"
+                disabled={positionValue.id === 3 ? true : false}
                 options={filteredSubposition}
                 getOptionLabel={(subposish) => subposish.name}
                 style={{ width: 300 }}
