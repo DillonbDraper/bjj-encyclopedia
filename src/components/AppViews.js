@@ -32,13 +32,41 @@ export const AppViews = (props) => {
                                         </>
                                 } />
                                 <Route exact path="/position/:positionId(\d+)" render={
-                                        props =>
-                                            <>
-                                                <VideoList {...props} />
-                                                <DropdownList {...props} />
-                                                <TechniqueList />
-                                            </>
-                                    } />
+                                    props =>
+                                        <>
+                                            <VideoList {...props} />
+                                            <DropdownList {...props} />
+                                            <TechniqueList />
+                                        </>
+                                } />
+
+                                <Route exact path="/position/:positionId(\d+)/orientation/:orientationId(\d+)" render={
+                                    props =>
+                                        <>
+                                            <VideoList {...props} />
+                                            <DropdownList {...props} />
+                                            <TechniqueList />
+                                        </>
+                                } />
+
+                                <Route exact path="/position/:positionId(\d+)/subposition/:subpositionId(\d+)" render={
+                                    props =>
+                                        <>
+                                            <VideoList {...props} />
+                                            <DropdownList {...props} />
+                                            <TechniqueList />
+                                        </>
+                                } />
+
+                                <Route exact path="/position/:positionId(\d+)/orientation/:orientationId(\d+)/subposition/:subpositionId(\d+)" render={
+                                    props =>
+                                        <>
+                                            <VideoList {...props} />
+                                            <DropdownList {...props} />
+                                            <TechniqueList />
+                                        </>
+                                } />
+
                                 <NoteProvider>
                                     <Route exact path="/videos/:videoId(\d+)" render={
                                         props =>

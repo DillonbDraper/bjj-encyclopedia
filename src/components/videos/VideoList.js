@@ -12,8 +12,10 @@ export const VideoList = props => {
 
     useEffect(() => {
         getVideos().then(getTechniques).then(() => {
-            if (props.history.location === "/") {
+            if (props.location.pathname === "/") {
+                console.log(props.history)
                 setWorkingVideos(videos)
+                console.log(videos)
             }
         })
     }, [])
@@ -21,18 +23,7 @@ export const VideoList = props => {
     useEffect(() => {
         if (props.match.params.positionId) {
             console.log(props.match)
-        const positionNumber = parseInt(props.match.params.positionId)
-        let workingTechs = techniques.filter(tech=> tech.positionId === positionNumber)
-
-
-        const filteredVids = videos.filter(vid=> {
-            for (const tech of workingTechs) {
-                if (vid.techniqueId === tech.id) {
-                    return vid
-                }
-            }
-        })
-        setWorkingVideos(filteredVids)
+        handleURL(props, techniques, videos, setWorkingVideos)
     }
 
     else {
@@ -53,4 +44,37 @@ export const VideoList = props => {
             </article>
         </div>
     )
+}
+
+const handleURL = (props, techs, vids, setter) => {
+    
+    const positionNumber = parseInt(props.match.params.positionId)
+    const orientationNumber = parseInt(props.match.params.orientationId)
+    const subpositionNumber = parseInt(props.match.params.subpositionId)
+
+    console.log(positionNumber)
+    console.log(orientationNumber)
+    console.log(subpositionNumber)
+
+    let workingTechs = techs.filter(tech => {
+        if (!orientationNumber && !subpositionNumber) {
+        return tech.positionId === positionNumber
+        } else if (orientationNumber && !subpositionNumber) {
+            return (tech.positionId === positionNumber && tech.orientationId === orientationNumber)
+        } else if (!orientationNumber && subpositionNumber) {
+            return (tech.positionId === positionNumber && tech.subpositionId === subpositionNumber)
+        } else if (orientationNumber && subpositionNumber) {
+            return (tech.positionId === positionNumber && tech.orientationId === orientationNumber && tech.subpositionId === subpositionNumber)
+        }
+    })
+
+
+        const filteredVids = vids.filter(vid=> {
+            for (const tech of workingTechs) {
+                if (vid.techniqueId === tech.id) {
+                    return vid
+                }
+            }
+        })
+        setter(filteredVids)
 }

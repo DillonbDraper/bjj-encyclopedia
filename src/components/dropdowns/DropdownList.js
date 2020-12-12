@@ -29,11 +29,11 @@ export const DropdownList = props => {
       if (posishState && !orientState && !subposishState) {
         props.history.push(`/position/${posishState.id}`)
       } else if (posishState && orientState && !subposishState) {
-        props.history.push(`/position=${posishState.id}/orientation=${orientState.id}`)
+        props.history.push(`/position/${posishState.id}/orientation/${orientState.id}`)
       } else if (posishState && !orientState && subposishState) {
-        props.history.push(`/position=${posishState.id}/subposition=${subposishState.id}`)
+        props.history.push(`/position/${posishState.id}/subposition/${subposishState.id}`)
       } else if (posishState && orientState && subposishState) {
-        props.history.push(`/position=${posishState.id}/orientation=${orientState.id}/subposition=${subposishState.id}`)
+        props.history.push(`/position/${posishState.id}/orientation/${orientState.id}/subposition/${subposishState.id}`)
       }
     }
 
