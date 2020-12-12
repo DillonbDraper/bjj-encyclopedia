@@ -45,6 +45,7 @@ export const AppViews = (props) => {
                                             <>
                                                 <VideoDetail {...props} />
                                                 <NoteList {...props} />
+                                                <DropdownList {...props} />
                                                 <TechniqueList />
                                             </>
                                     } />
