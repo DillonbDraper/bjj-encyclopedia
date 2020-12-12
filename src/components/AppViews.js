@@ -31,8 +31,16 @@ export const AppViews = (props) => {
                                             <DropdownList {...props} />
                                         </>
                                 } />
+                                <Route exact path="/position/:positionId(\d+)" render={
+                                        props =>
+                                            <>
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                                <TechniqueList />
+                                            </>
+                                    } />
                                 <NoteProvider>
-                                    <Route path="/videos/:videoId(\d+)" render={
+                                    <Route exact path="/videos/:videoId(\d+)" render={
                                         props =>
                                             <>
                                                 <VideoDetail {...props} />

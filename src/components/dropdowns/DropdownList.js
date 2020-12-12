@@ -27,7 +27,7 @@ export const DropdownList = props => {
 
     const handleSubmit = (posishState, orientState, subposishState) => {
       if (posishState && !orientState && !subposishState) {
-        props.history.push(`/position=${posishState.id}`)
+        props.history.push(`/position/${posishState.id}`)
       } else if (posishState && orientState && !subposishState) {
         props.history.push(`/position=${posishState.id}/orientation=${orientState.id}`)
       } else if (posishState && !orientState && subposishState) {
