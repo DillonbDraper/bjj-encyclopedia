@@ -11,25 +11,20 @@ export const VideoList = props => {
    
 
     useEffect(() => {
-        getVideos().then(getTechniques).then(() => {
-            if (props.location.pathname === "/") {
-                console.log(props.history)
-                setWorkingVideos(videos)
-                console.log(videos)
-            }
-        })
+        getTechniques().then(getVideos)
     }, [])
 
     useEffect(() => {
+        if (props.location.pathname === "/") {
+            setWorkingVideos(videos)
+        }
+    })
+
+    useEffect(() => {
         if (props.match.params.positionId) {
-            console.log(props.match)
         handleURL(props, techniques, videos, setWorkingVideos)
     }
-
-    else {
-        setWorkingVideos(videos)
-    }
-    }, [props.match])
+    }, [videos, props.match])
 
     return (
         <div className="videos">
@@ -47,14 +42,10 @@ export const VideoList = props => {
 }
 
 const handleURL = (props, techs, vids, setter) => {
-    
+
     const positionNumber = parseInt(props.match.params.positionId)
     const orientationNumber = parseInt(props.match.params.orientationId)
     const subpositionNumber = parseInt(props.match.params.subpositionId)
-
-    console.log(positionNumber)
-    console.log(orientationNumber)
-    console.log(subpositionNumber)
 
     let workingTechs = techs.filter(tech => {
         if (!orientationNumber && !subpositionNumber) {
@@ -77,4 +68,6 @@ const handleURL = (props, techs, vids, setter) => {
             }
         })
         setter(filteredVids)
+        console.log(filteredVids)
+  
 }
