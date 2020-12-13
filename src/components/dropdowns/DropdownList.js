@@ -13,17 +13,21 @@ export const DropdownList = props => {
     const { orientations, getOrientations } = useContext(OrientationContext)
     const { subpositions, getSubpositions } = useContext(SubpositionContext)
 
+    const [ positionValue, setpositionValue ] = useState({})
+    const [ orientationValue, setOrientationValue ] = useState({})
+    const [ subpositionValue, setsubpositionValue ] = useState({})
  
 
     useEffect(() => getSubpositions().then(getOrientations).then(getPositions), [])
 
+    useEffect(() => {
+      setOrientationValue({})
+      setsubpositionValue({}) 
+    }, [positionValue])
 
 
 
-
-    const [ positionValue, setpositionValue ] = useState(null)
-    const [ orientationValue, setOrientationValue ] = useState("")
-    const [ subpositionValue, setsubpositionValue ] = useState("")
+    
 
     const handleSubmit = (posishState, orientState, subposishState) => {
       if (posishState && !orientState && !subposishState) {
@@ -46,10 +50,15 @@ export const DropdownList = props => {
               style={{ width: 300 }}
               value={positionValue}
               onChange={(event, newValue) => {  
-                setOrientationValue("")
-                setsubpositionValue("")
+                if (!newValue) {
+                  setpositionValue({})
+                  setOrientationValue({})
+                setsubpositionValue({})
+                } else {
                 setpositionValue(newValue)
-
+                setOrientationValue({})
+                setsubpositionValue({})
+                }
                 console.log(orientationValue)
                 console.log(subpositionValue)
                 }}

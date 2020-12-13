@@ -45,6 +45,10 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
                 disabled={positionValue.id === 3 ? true : false}
                 options={orientations}
                 getOptionLabel={(orient) => {
+                    if (orient === {}) {
+                        return ""
+                    }
+
                     if (orient.dominant === true && (positionValue.id === 1 || positionValue.id === 2 || positionValue.id === 4 || positionValue.id === 5 || positionValue.id === 7 || positionValue.id === 9)) {
                         return "Top"
                     } else if (orient.dominant === true && (positionValue.id === 6 || positionValue.id === 8)) {
@@ -64,7 +68,13 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
                 id="subpositions"
                 disabled={positionValue.id === 3 ? true : false}
                 options={filteredSubposition}
-                getOptionLabel={(subposish) => subposish.name}
+                getOptionLabel={(subposish) => { 
+                    if (subposish === {}) {
+                        return ""
+                    } else {
+                        return subposish.name
+                    }
+                }}
                 style={{ width: 300 }}
                 value={subpositionValue}
                 onChange={(event, newValue) => setsubpositionValue(newValue)}
