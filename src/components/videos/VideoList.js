@@ -29,16 +29,17 @@ export const VideoList = props => {
 
     }, [videos, props.match])
 
+    console.log(workingVideos)
     return (
         <div className="videos">
             <h1>Videos</h1>
 
             <article className="videoList">
-                {
-                    workingVideos.map(video => {
+                { workingVideos.length < 1 ? <h2>No videos matching your search parameters</h2> :
+                   workingVideos.map(video => {
                         return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
-                    })
-                }
+                    }) }
+                
             </article>
         </div>
     )
