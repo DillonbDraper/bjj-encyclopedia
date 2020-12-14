@@ -11,11 +11,13 @@ export const VideoDetail = (props) => {
         getVideos()
     }, [])
 
+    //Sets the video to be played depending on the URL.  Empty object after || is to ensure it is never null and breaks the app
     useEffect(() => {
         const video = videos.find(vid=> vid.id === parseInt(props.match.params.videoId)) || {}
         setVideo(video)
     }, [videos])
     
+    //Uses ReactPlayer imported component to display video on page with YT controls accessible.
     return (
         <ReactPlayer url={video.url} controls={true}/>
     )

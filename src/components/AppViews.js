@@ -30,6 +30,7 @@ export const AppViews = (props) => {
                                             <DropdownList {...props} />
                                         </>
                                 } />
+
                                 <Route exact path="/position/:positionId(\d+)" render={
                                     props =>
                                         <>

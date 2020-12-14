@@ -1,21 +1,21 @@
 import React, { useRef, useContext } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { NoteContext } from "./NoteProvider"
 
 export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId }) => {
     const text = useRef(null)
-    const { notes, addNote, getNotes, updateNote } = useContext(NoteContext)
+    const { addNote, updateNote } = useContext(NoteContext)
 
-
+    //If editMode is true, saves edit.  If not, creates new note.
     const constructNewNote = () => {
         const userId = parseInt(localStorage.getItem("grappler"))
         const videoId = parseInt(videoNumber)
 
-        if (text.current.value === null || text.current.value === undefined || text.current.value === "") {
+        if (!text.current.value) {
             window.alert("Please enter a note before attempting to save")
         } else {
 
+            //Time is always an empty string as a placeholder for stretch goal
             if (editMode) {
                 const newNote = {
                     id: noteId,

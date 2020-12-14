@@ -17,6 +17,7 @@ const useStyles = makeStyles({
     },
 });
 
+//Uses materialUI styling to display video cards with information.  Image is clickable and goes to videoDetail.
 export const Video = (props) => {
     const classes = useStyles();
     return (

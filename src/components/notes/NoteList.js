@@ -2,16 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { NoteContext } from "./NoteProvider"
 import { Note } from "./Note"
 import { NoteForm } from "./NoteForm"
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
 
 export const NoteList = props => {
     const { notes, getNotes } = useContext(NoteContext)
@@ -31,7 +22,10 @@ export const NoteList = props => {
             })
             }
                 <Button onClick={() => setAdd(true)} color="primary" variant="outlined">Add Note</Button>
+
+                
               {
+                //Only display NoteForm if add is set to true by clicking the button
                 add ? <NoteForm videoNumber={props.match.params.videoId} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
         </>

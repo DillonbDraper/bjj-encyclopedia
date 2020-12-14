@@ -14,7 +14,10 @@ export const Note = (props) => {
     const [ editMode, setEditMode ] = useState(false)
     return (
         <>
-            { editMode ? <NoteForm editMode={editMode} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""}
+            {
+            //Displays the NoteForm if editMode is true, passes in props to prepoluate it 
+            editMode ? <NoteForm editMode={editMode} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""
+            }
             <List>
                 <ListItem>
                     <ListItemText
