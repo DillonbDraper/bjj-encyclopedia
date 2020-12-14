@@ -21,9 +21,10 @@ export const VideoList = props => {
     })
 
     useEffect(() => {
-        if (props.match.params.positionId) {
+        if (props.match.params.positionId || props.match.params.techniqueId) {
         handleURL(props, techniques, videos, setWorkingVideos)
-    }
+    } 
+    
     }, [videos, props.match])
 
     return (
@@ -46,9 +47,14 @@ const handleURL = (props, techs, vids, setter) => {
     const positionNumber = parseInt(props.match.params.positionId)
     const orientationNumber = parseInt(props.match.params.orientationId)
     const subpositionNumber = parseInt(props.match.params.subpositionId)
+    const techniqueNumber = parseInt(props.match.params.techniqueId)
+
+    console.log(techniqueNumber)
 
     let workingTechs = techs.filter(tech => {
-        if (!orientationNumber && !subpositionNumber) {
+        if (techniqueNumber) {
+            return tech.id === techniqueNumber
+        } else if (!orientationNumber && !subpositionNumber) {
         return tech.positionId === positionNumber
         } else if (orientationNumber && !subpositionNumber) {
             return (tech.positionId === positionNumber && tech.orientationId === orientationNumber)
@@ -59,6 +65,7 @@ const handleURL = (props, techs, vids, setter) => {
         }
     })
 
+        console.log(workingTechs)
 
         const filteredVids = vids.filter(vid=> {
             for (const tech of workingTechs) {

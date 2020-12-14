@@ -27,7 +27,6 @@ export const AppViews = (props) => {
                                         <>
                                             <Logo />
                                             <VideoList {...props} />
-                                            <TechniqueList />
                                             <DropdownList {...props} />
                                         </>
                                 } />
@@ -36,7 +35,6 @@ export const AppViews = (props) => {
                                         <>
                                             <VideoList {...props} />
                                             <DropdownList {...props} />
-                                            <TechniqueList />
                                         </>
                                 } />
 
@@ -45,7 +43,6 @@ export const AppViews = (props) => {
                                         <>
                                             <VideoList {...props} />
                                             <DropdownList {...props} />
-                                            <TechniqueList />
                                         </>
                                 } />
 
@@ -54,7 +51,6 @@ export const AppViews = (props) => {
                                         <>
                                             <VideoList {...props} />
                                             <DropdownList {...props} />
-                                            <TechniqueList />
                                         </>
                                 } />
 
@@ -63,7 +59,14 @@ export const AppViews = (props) => {
                                         <>
                                             <VideoList {...props} />
                                             <DropdownList {...props} />
-                                            <TechniqueList />
+                                        </>
+                                } />
+
+                                <Route exact path="/techniques/:techniqueId(\d+)" render={
+                                    props =>
+                                        <>
+                                            <VideoList {...props} />
+                                            <DropdownList {...props} />
                                         </>
                                 } />
 
@@ -74,7 +77,6 @@ export const AppViews = (props) => {
                                                 <VideoDetail {...props} />
                                                 <NoteList {...props} />
                                                 <DropdownList {...props} />
-                                                <TechniqueList />
                                             </>
                                     } />
                                 </NoteProvider>
