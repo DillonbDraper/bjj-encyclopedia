@@ -1,4 +1,4 @@
-import react, { useContext, useState, useEffect, useRef } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { PositionContext } from './PositionProvider'
 import { SubpositionContext } from './SubpositionProvider'
 import { OrientationContext } from './OrientationProvider'
@@ -14,9 +14,9 @@ export const DropdownList = props => {
   const { orientations, getOrientations } = useContext(OrientationContext)
   const { subpositions, getSubpositions } = useContext(SubpositionContext)
 
-  const [positionValue, setpositionValue] = useState({})
-  const [orientationValue, setOrientationValue] = useState({})
-  const [subpositionValue, setsubpositionValue] = useState({})
+  const [positionValue, setpositionValue] = useState(0)
+  const [orientationValue, setOrientationValue] = useState(0)
+  const [subpositionValue, setsubpositionValue] = useState(0)
 
 
   useEffect(() => getSubpositions().then(getOrientations).then(getPositions), [])
@@ -24,15 +24,14 @@ export const DropdownList = props => {
   
   //Resets orientationValue and subpositionValue to empty strings when position is altered
   useEffect(() => {
-    setOrientationValue("")
-    setsubpositionValue("")
+    setOrientationValue(0)
+    setsubpositionValue(0)
   }, [positionValue])
 
   //Handles URL changes on button click depending on which options have been selected
   const handleSubmit = (posishState, orientState, subposishState) => {
-    console.log(orientState)
-
-    if (posishState && (!orientState && orientState !== {}) && (!subposishState && subposishState !== {})) {
+    console.log(posishState)
+    if (posishState && !orientState && !subposishState) {
       props.history.push(`/position/${posishState.id}`)
     } else if (posishState && orientState && !subposishState) {
       props.history.push(`/position/${posishState.id}/orientation/${orientState.id}`)
@@ -57,16 +56,16 @@ export const DropdownList = props => {
           }
         }
         }
+        getOptionSelected={(posish) => posish.id === positionValue}
         style={{ width: 300 }}
         value={positionValue}
         onChange={(event, newValue) => {
           //Ensures that positionValue is never null, which causes breakage as other components listen to and depend on it.
           if (!newValue) {
-            setpositionValue({})
-          
+            setpositionValue(0)
           } else {
             setpositionValue(newValue)
-           
+            
           }
      
         }}
@@ -86,7 +85,7 @@ export const DropdownList = props => {
       }
         variant="contained"
         color="primary"
-        disabled={typeof positionValue === 'object' && positionValue !== null ? false : true}
+        disabled={positionValue === 0 ? true : false}
       >Search</Button>
 
       <TechniqueList

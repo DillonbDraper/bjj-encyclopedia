@@ -1,4 +1,4 @@
-import react, { useContext, useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { SubpositionContext } from './SubpositionProvider'
 import { OrientationContext } from './OrientationProvider'
 import TextField from '@material-ui/core/TextField';
@@ -46,7 +46,7 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
                 disabled={positionValue.id === 3 ? true : false}
                 options={orientations}
                 getOptionLabel={(orient) => {
-                    if (orient === {} || !orient) {
+                    if (orient === 0 || !orient) {
                         return ""
                     }
 
@@ -71,7 +71,7 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
                 disabled={positionValue.id === 3 ? true : false}
                 options={filteredSubposition}
                 getOptionLabel={(subposish) => { 
-                    if (subposish === {} || !subposish) {
+                    if (subposish === 0 || !subposish) {
                         return ""
                     } else {
                         return subposish.name

@@ -17,7 +17,6 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
         }) 
         
         if (orientationValue && orientationValue.id) {
-            console.log(orientationValue)
             techsToSet = techsToSet.filter(tech => {
                return tech.orientationId === orientationValue.id
             })
