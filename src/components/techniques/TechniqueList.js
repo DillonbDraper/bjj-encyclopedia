@@ -23,10 +23,7 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
         }
 
         if (subpositionValue && subpositionValue.id) {
-            console.log(techsToSet)
-            console.log(subpositionValue.id)
             techsToSet = techsToSet.filter(tech => tech.subpositionId === subpositionValue.id)
-            console.log(techsToSet)
         }
         setWorkingTechniques(techsToSet)
     }, [positionValue, orientationValue, subpositionValue])

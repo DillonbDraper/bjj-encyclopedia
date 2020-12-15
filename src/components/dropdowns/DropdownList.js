@@ -30,7 +30,6 @@ export const DropdownList = props => {
 
   //Handles URL changes on button click depending on which options have been selected
   const handleSubmit = (posishState, orientState, subposishState) => {
-    console.log(posishState)
     if (posishState && !orientState && !subposishState) {
       props.history.push(`/position/${posishState.id}`)
     } else if (posishState && orientState && !subposishState) {

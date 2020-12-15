@@ -33,7 +33,7 @@
       "title": "The Most Efficient Straight Foot Lock by Luiz Panza",
       "description": "The Most Efficient Straight Foot Lock by Luiz Panza\n-\nClick Here To Check Out Luiz Panza's Instructional Videos - https://bjjfanatics.com/collections/all/fighter_luiz-panza\n-\n\nDownload Bernardo Faria's FREE Ebook  \n\"Your Guide To A Lifetime Of Enjoying & Improving Your Brazilian Jiu-Jitsu\" Click In The Link Below:\nhttps://bernardofaria.com/e-book-download/\n-\n\"Bernardo Faria is a 5x World Champion. Bernardo started training Brazilian Jiu-Jitsu in Juiz de Fora - MG, Brazil at the age of 14 in 2001. After receiving the Black Belt from his first instructor Ricardo Marques in 2008, He moved to Sao Paulo to join BJJ legend Fabio Gurgel and his Alliance team. After many years of training and winning many major titles, Bernardo moved to NYC in 2013 to train and teach at Marcelo Garcia Academy. In 2015 Bernardo achieved his dream of winning the IBJJF World Championship Open class title and his division, doing the double Gold and becoming the 1st in the IBJJF Ranking and also choosed as the best athlete of 2015. \n\nBernardo Faria has now taken on the mission to share some of the lessons, techniques, experiences and more that he has learned along in his 16 years and counting as a BJJ student, teacher and world class competitor.\n\nSubscribe to his channel, and join him in this amazing BJJ Journey. We promise that you will also improve your BJJ with his awesome Video Lessons, Episodes of his \"5 Minutes BJJ Talk\" and more...\n\nwww.fujisports.com -  15% OFF Coupon Code: FARIA15\n\nwww.bjjfanatics.com - 10% OFF Coupon Code: YOUTUBEFARIA\n\nwww.fujimats.com - 10% OFF Coupon Code: FARIAMAT10\n\nhttp://bernardofaria.com\nhttps://www.facebook.com/bernardofariabjj/\nhttps://www.instagram.com/bernardofariabjj/\nhttps://twitter.com/bernardofariajj",
       "techniqueId": 17,
-      "gi": null,
+      "gi": false,
       "id": 4
     },
     {
@@ -141,7 +141,7 @@
       "title": "Knee Slice Pass: BJJ Techniques by Rafael Lovato",
       "description": "KNEE SLICE PASS BY RAFAEL LOVATO //\n\nIn this BJJ Techniques video, one of the greatest American BJJ Practitioners, and current Bellator Champion, Rafael Lovato is showing some of his signature smash passes.\n\nRafael is notorious for his simple and easy to implement smash pass style that carried him to black belt world championships, brazilian nationals titles and now Bellator championships. \n\nThis is a clip off of his new instructional series. \n\n BJJ Fanatics was started by a pair of black belts (Bernardo Faria & Michael Zenga) who feel that nothing is more important than improving your BJJ skills as much as possible in the least amount of time.  Their aim was to create a shop for BJJ Students who don’t look at BJJ as a sport – but as a lifestyle.\n\n15% OFF On All Of Our BJJ Instructional Videos - Just Use The Coupon Code: FANATICSYOUTUBE\n\nWebsite: https://www.bjjfanatics.com\n\nYoutube: https://www.youtube.com/channel/UCAqme-CE-yLm01BV5nUjPPA\n\nFacebook Group: https://www.facebook.com/groups/733553463659020/\n\nInstagram: https://www.instagram.com/bjj.fanatics/?hl=en",
       "techniqueId": 13,
-      "gi": null,
+      "gi": true,
       "id": 16
     },
     {
@@ -168,7 +168,7 @@
       "title": "Knee On Belly Escape (Effective Vs Larger Opponents)",
       "description": "This video explains my method for escaping the knee on belly. Rather than turning into my opponent exposing the danger of front head locks or an opponent switching to side control on my opposite side, I focus on turning away and connected my elbow knee frames back together. This method of escape is in my opinion far more effective for fighting vs a stronger, or bigger opponent)",
       "techniqueId": 14,
-      "gi": null,
+      "gi": true,
       "id": 19
     },
     {
@@ -451,6 +451,13 @@
       "time": "",
       "videoId": 2,
       "userId": 1
+    },
+    {
+      "id": 5,
+      "text": "This is an edited note",
+      "time": "",
+      "videoId": 9,
+      "userId": 1
     }
   ],
   "users": [
@@ -459,6 +466,12 @@
       "password": "grappling",
       "name": "Dillon Draper",
       "id": 1
+    },
+    {
+      "email": "email@email.com",
+      "password": "password",
+      "name": "Name Name two",
+      "id": 2
     }
   ],
   "techniques": [

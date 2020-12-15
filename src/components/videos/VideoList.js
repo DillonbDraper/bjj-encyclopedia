@@ -29,7 +29,6 @@ export const VideoList = props => {
 
     }, [videos, props.match])
 
-    console.log(workingVideos)
     return (
         <div className="videos">
             <h1>Videos</h1>
