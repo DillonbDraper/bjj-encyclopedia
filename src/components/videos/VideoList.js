@@ -2,6 +2,11 @@ import React, { useContext, useEffect, useState } from "react"
 import { VideoContext } from "./VideoProvider"
 import { Video } from "./Video"
 import { TechniqueContext } from "../techniques/TechniqueProvider"
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import "./VideoList.css"
 
 export const VideoList = props => {
@@ -9,7 +14,7 @@ export const VideoList = props => {
     const { techniques, getTechniques } = useContext(TechniqueContext)
 
     const [workingVideos, setWorkingVideos] = useState([])
-
+    const [gi, setGi] = useState("both");
 
     useEffect(() => {
         getTechniques().then(getVideos)
@@ -20,7 +25,7 @@ export const VideoList = props => {
         if (props.location.pathname === "/") {
             setWorkingVideos(videos)
         }
-    })
+    }, [])
 
     //Alters videos displayed based on if URL has a positionId or techniqueId or neither.
     useEffect(() => {
@@ -30,22 +35,53 @@ export const VideoList = props => {
 
     }, [videos, props.match])
 
-    return (
-        <div className="videos">
+    useEffect(() => {
+        if (gi === "gi") {
+            handleURL(props, techniques, videos, setWorkingVideos).then(vids => {
+            const newVideos = vids.filter(vid => vid.gi === true)
+            setWorkingVideos(newVideos)
+        })
+        } else if (gi === "nogi") {
+            handleURL(props, techniques, videos, setWorkingVideos).then(vids => {
+            const newVideos = vids.filter(vid => vid.gi === false)
+            setWorkingVideos(newVideos)
+        })
+        } else if (gi === "both") {
+            handleURL(props, techniques, videos, setWorkingVideos)
+        }
+    }, [gi])
 
-            <article className="videoList">
-                { workingVideos.length < 1 ? <h2>No videos matching your search parameters</h2> :
-                   workingVideos.map(video => {
+
+    const handleChange = (event) => {
+        setGi(event.target.value);
+    };
+
+
+    return (
+        <>
+            <FormControl component="fieldset">
+                <FormLabel component="legend">Show Videos For</FormLabel>
+                <RadioGroup aria-label="gender" name="gi" value={gi} onChange={handleChange}>
+                    <FormControlLabel value={"both"} control={<Radio />} label="Both" />
+                    <FormControlLabel value={"gi"} control={<Radio />} label="Gi" />
+                    <FormControlLabel value={"nogi"} control={<Radio />} label="No gi" />
+                </RadioGroup>
+            </FormControl>
+            <div className="videos">
+
+                <article className="videoList">
+                    {workingVideos.length < 1 ? <h1>No videos found matching set paramets</h1> : workingVideos.map(video => {
                         return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
-                    }) }
-                
-            </article>
-        </div>
+                    })}
+
+                </article>
+            </div>
+        </>
     )
 }
 
 //Handles variable number/nature of URL parameters, sets videos appropriately
-const handleURL = (props, techs, vids, setter) => {
+async function handleURL(props, techs, vids, setter) {
 
     const positionNumber = parseInt(props.match.params.positionId)
     const orientationNumber = parseInt(props.match.params.orientationId)
@@ -77,5 +113,15 @@ const handleURL = (props, techs, vids, setter) => {
         }
     })
     setter(filteredVids)
+    console.log(filteredVids)
+    return filteredVids
 
 }
+
+// finalVideos !== [] ? finalVideos.map(video => {
+//     return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
+// }) :
+//     finalVideos === [] && workingVideos.length < 1 ? <h2>No videos matching your search parameters</h2> :
+//         workingVideos.map(video => {
+//             return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
+//         })
