@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.videos__dropdowns {
+    flex-basis: 40%
+}
+
+.logo {
+    
+    margin-left: 28em;
+}

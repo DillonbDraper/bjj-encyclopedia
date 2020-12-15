@@ -1,0 +1,16 @@
+.techniques {
+    border: 1px solid black;
+    height: 8em;
+    width: 20em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 1em;
+}
+
+.tech__list {
+    list-style-type: none;
+}
+
+.technique__link {
+    margin-right: 1em;
+}

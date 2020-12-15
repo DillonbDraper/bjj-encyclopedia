@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { VideoContext } from "./VideoProvider"
 import { Video } from "./Video"
 import { TechniqueContext } from "../techniques/TechniqueProvider"
+import "./VideoList.css"
 
 export const VideoList = props => {
     const { videos, getVideos } = useContext(VideoContext)
@@ -29,10 +30,8 @@ export const VideoList = props => {
 
     }, [videos, props.match])
 
-    console.log(workingVideos)
     return (
         <div className="videos">
-            <h1>Videos</h1>
 
             <article className="videoList">
                 { workingVideos.length < 1 ? <h2>No videos matching your search parameters</h2> :

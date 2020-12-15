@@ -11,6 +11,7 @@ import { PositionProvider } from "./dropdowns/PositionProvider"
 import { DropdownList } from "./dropdowns/DropdownList"
 import { OrientationProvider } from "./dropdowns/OrientationProvider"
 import { SubpositionProvider } from "./dropdowns/SubpositionProvider"
+import "./AppViews.css"
 
 export const AppViews = (props) => {
     return (
@@ -22,11 +23,12 @@ export const AppViews = (props) => {
                             <SubpositionProvider>
                                 <Route exact path="/" render={
                                     props =>
-
                                         <>
-                                            <Logo />
+                                            <Logo className="logo" />
+                                        <div className="main">
                                             <VideoList {...props} />
                                             <DropdownList {...props} />
+                                        </div>
                                         </>
                                 } />
 

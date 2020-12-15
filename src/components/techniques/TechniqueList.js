@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { TechniqueContext } from "./TechniqueProvider"
 import { Technique } from "./Technique"
+import "./TechniqueList.css"
 
 export const TechniqueList = ({ positionValue, orientationValue, subpositionValue }) => {
     const {techniques, getTechniques } = useContext(TechniqueContext)
@@ -23,10 +24,7 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
         }
 
         if (subpositionValue && subpositionValue.id) {
-            console.log(techsToSet)
-            console.log(subpositionValue.id)
             techsToSet = techsToSet.filter(tech => tech.subpositionId === subpositionValue.id)
-            console.log(techsToSet)
         }
         setWorkingTechniques(techsToSet)
     }, [positionValue, orientationValue, subpositionValue])
@@ -34,14 +32,17 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
     
     //May want to refactor to display all techniques when no values are selected, but would need to come with CSS limitations or else it would be a massive mess
     return (
-        <div className="technique__list">
-            <ul>
+        <>
+        <h2>Techniques</h2>
+        <div className="techniques">
+            <ul className="tech__list">
                 { workingTechniques.map(tech => {
                         return (<Technique key={tech.id} id={tech.id} name={tech.name}></Technique>)
                     })
                 }
             </ul>
         </div>
+        </>
     )
 
 
