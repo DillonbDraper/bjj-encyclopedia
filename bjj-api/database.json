@@ -141,7 +141,7 @@
       "title": "Knee Slice Pass: BJJ Techniques by Rafael Lovato",
       "description": "KNEE SLICE PASS BY RAFAEL LOVATO //\n\nIn this BJJ Techniques video, one of the greatest American BJJ Practitioners, and current Bellator Champion, Rafael Lovato is showing some of his signature smash passes.\n\nRafael is notorious for his simple and easy to implement smash pass style that carried him to black belt world championships, brazilian nationals titles and now Bellator championships. \n\nThis is a clip off of his new instructional series. \n\n BJJ Fanatics was started by a pair of black belts (Bernardo Faria & Michael Zenga) who feel that nothing is more important than improving your BJJ skills as much as possible in the least amount of time.  Their aim was to create a shop for BJJ Students who don’t look at BJJ as a sport – but as a lifestyle.\n\n15% OFF On All Of Our BJJ Instructional Videos - Just Use The Coupon Code: FANATICSYOUTUBE\n\nWebsite: https://www.bjjfanatics.com\n\nYoutube: https://www.youtube.com/channel/UCAqme-CE-yLm01BV5nUjPPA\n\nFacebook Group: https://www.facebook.com/groups/733553463659020/\n\nInstagram: https://www.instagram.com/bjj.fanatics/?hl=en",
       "techniqueId": 13,
-      "gi": true,
+      "gi": null,
       "id": 16
     },
     {
@@ -451,6 +451,41 @@
       "time": "",
       "videoId": 2,
       "userId": 1
+    },
+    {
+      "text": "LGTM",
+      "time": "",
+      "videoId": 13,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "text": "Behold: A note",
+      "time": "",
+      "videoId": 3,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "text": "Now I shall create a wholly unreasonably long note that no one could ever hope to take so that I will create the ability for people to take nothing of value from this.  This is a test to see how exceedingly long notes look and are handled.  Hahahahaha.",
+      "time": "",
+      "videoId": 3,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "text": "Notely Note",
+      "time": "",
+      "videoId": 4,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "text": "okay",
+      "time": "",
+      "videoId": 4,
+      "userId": 1,
+      "id": 9
     }
   ],
   "users": [
@@ -459,12 +494,6 @@
       "password": "grappling",
       "name": "Dillon Draper",
       "id": 1
-    },
-    {
-      "email": "email@email.com",
-      "password": "password",
-      "name": "Name Name two",
-      "id": 2
     }
   ],
   "techniques": [

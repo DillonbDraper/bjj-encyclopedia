@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/youtube'
 import { VideoContext } from './VideoProvider';
+import { NoteList } from "../notes/NoteList"
 import "./VideoDetail.css"
 
 export const VideoDetail = (props) => {
@@ -20,8 +21,16 @@ export const VideoDetail = (props) => {
     
     //Uses ReactPlayer imported component to display video on page with YT controls accessible.
     return (
-        <div className="player">
-        <ReactPlayer url={video.url} controls={true}/>
+        <>
+        <div className="player__wrapper">
+        <ReactPlayer url={video.url} 
+        className="player" 
+        controls={true}
+        width='50%'
+        height='30em'
+        />
         </div>
+        <NoteList {...props} />
+        </>
     )
 }

@@ -1,4 +1,10 @@
+.player__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
 .player {
-    width: 40%;
-    height: 30%;
+    margin-left: 10%;
+    margin-top: 5%
 }

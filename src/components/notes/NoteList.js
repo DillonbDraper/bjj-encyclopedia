@@ -3,6 +3,7 @@ import { NoteContext } from "./NoteProvider"
 import { Note } from "./Note"
 import { NoteForm } from "./NoteForm"
 import Button from '@material-ui/core/Button';
+import "./NoteList.css"
 
 export const NoteList = props => {
     const { notes, getNotes } = useContext(NoteContext)
@@ -16,7 +17,7 @@ export const NoteList = props => {
     const notesToRender = notes.filter(note => note.videoId === parseInt(props.match.params.videoId) && note.userId === parseInt(localStorage.getItem("grappler")))
 
     return (
-        <>
+        <div className="note__list">
             {notesToRender.map(note => {
                 return <Note key={note.id} id={note.id} text={note.text} videoNumber={props.match.params.videoId}/>
             })
@@ -28,7 +29,7 @@ export const NoteList = props => {
                 //Only display NoteForm if add is set to true by clicking the button
                 add ? <NoteForm videoNumber={props.match.params.videoId} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
-        </>
+        </div>
     )
 
 }

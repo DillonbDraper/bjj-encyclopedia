@@ -8,6 +8,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { NoteContext } from "./NoteProvider"
 import { NoteForm } from './NoteForm';
+import './Note.css'
 
 export const Note = (props) => {
     const { deleteNote } = useContext(NoteContext)
@@ -18,7 +19,7 @@ export const Note = (props) => {
             //Displays the NoteForm if editMode is true, passes in props to prepoluate it 
             editMode ? <NoteForm editMode={editMode} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""
             }
-            <List>
+            <List className="note">
                 <ListItem>
                     <ListItemText
                         primary={props.text}

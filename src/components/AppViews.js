@@ -25,50 +25,65 @@ export const AppViews = (props) => {
                                     props =>
                                         <>
                                             <Logo className="logo" />
-                                        <div className="main">
-                                            <VideoList {...props} />
-                                            <DropdownList {...props} />
-                                        </div>
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
                                         </>
                                 } />
 
                                 <Route exact path="/position/:positionId(\d+)" render={
                                     props =>
                                         <>
-                                            <VideoList {...props} />
-                                            <DropdownList {...props} />
+                                            <Logo className="logo" />
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
                                         </>
                                 } />
 
                                 <Route exact path="/position/:positionId(\d+)/orientation/:orientationId(\d+)" render={
                                     props =>
                                         <>
-                                            <VideoList {...props} />
-                                            <DropdownList {...props} />
+                                            <Logo className="logo" />
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
                                         </>
                                 } />
 
                                 <Route exact path="/position/:positionId(\d+)/subposition/:subpositionId(\d+)" render={
                                     props =>
                                         <>
-                                            <VideoList {...props} />
-                                            <DropdownList {...props} />
+                                            <Logo className="logo" />
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
                                         </>
                                 } />
 
                                 <Route exact path="/position/:positionId(\d+)/orientation/:orientationId(\d+)/subposition/:subpositionId(\d+)" render={
                                     props =>
                                         <>
-                                            <VideoList {...props} />
-                                            <DropdownList {...props} />
+                                            <Logo className="logo" />
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
                                         </>
                                 } />
 
                                 <Route exact path="/techniques/:techniqueId(\d+)" render={
                                     props =>
                                         <>
-                                            <VideoList {...props} />
-                                            <DropdownList {...props} />
+                                            <Logo className="logo" />
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
                                         </>
                                 } />
 
@@ -76,9 +91,10 @@ export const AppViews = (props) => {
                                     <Route exact path="/videos/:videoId(\d+)" render={
                                         props =>
                                             <>
+                                            <div className="detail">
                                                 <VideoDetail {...props} />
-                                                <NoteList {...props} />
                                                 <DropdownList {...props} />
+                                                </div>
                                             </>
                                     } />
                                 </NoteProvider>
