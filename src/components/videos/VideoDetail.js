@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/youtube'
 import { VideoContext } from './VideoProvider';
+import "./VideoDetail.css"
 
 export const VideoDetail = (props) => {
     const {videos, getVideos} = useContext(VideoContext)
@@ -19,6 +20,8 @@ export const VideoDetail = (props) => {
     
     //Uses ReactPlayer imported component to display video on page with YT controls accessible.
     return (
+        <div className="player">
         <ReactPlayer url={video.url} controls={true}/>
+        </div>
     )
 }
