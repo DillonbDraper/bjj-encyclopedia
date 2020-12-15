@@ -20,30 +20,12 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
     }
 
 
-    if (positionValue === null) {
-        return (
-        <> 
-            <Autocomplete
-            id="orientation"
-            options={[]} 
-             renderInput={(params) => <TextField {...params} label="Orientation" variant="outlined" />}
-             style={{ width: 300 }}
-             />
-            <Autocomplete 
-            id="subpositions"
-            options={[]}
-            renderInput={(params) => <TextField {...params} label="Subposition" variant="outlined" />}
-            style={{ width: 300 }}
-            />
-        
-        </>)
-    }
     return (
         <>
             <Autocomplete
                 id="orientation"
                 //Disables this dropdown if position === standing, which makes these children irrelevant
-                disabled={positionValue.id === 3 ? true : false}
+                disabled={positionValue.id === 3 || positionValue === 0 || positionValue.id === 0 ? true : false}
                 options={orientations}
                 getOptionLabel={(orient) => {
                     if (orient === 0 || !orient) {
@@ -68,7 +50,7 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
             />
             <Autocomplete
                 id="subpositions"
-                disabled={positionValue.id === 3 ? true : false}
+                disabled={positionValue.id === 3 || positionValue === 0 || positionValue.id === 0 ? true : false}
                 options={filteredSubposition}
                 getOptionLabel={(subposish) => { 
                     if (subposish === 0 || !subposish) {
