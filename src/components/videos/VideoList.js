@@ -21,11 +21,11 @@ export const VideoList = props => {
     }, [])
 
     //Makes it so home page displays all videos
-    useEffect(() => {
-        if (props.location.pathname === "/") {
-            setWorkingVideos(videos)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (props.location.pathname === "/") {
+    //         setWorkingVideos(videos)
+    //     }
+    // }, [])
 
     //Alters videos displayed based on if URL has a positionId or techniqueId or neither.
     useEffect(() => {
@@ -47,8 +47,9 @@ export const VideoList = props => {
             setWorkingVideos(newVideos)
         })
         } else if (gi === "both") {
-            handleURL(props, techniques, videos, setWorkingVideos)
-        }
+            getTechniques().then(getVideos).then(() => handleURL(props, techniques, videos, setWorkingVideos)).then(vids => setWorkingVideos(vids))
+            }
+        
     }, [gi])
 
 
@@ -70,7 +71,7 @@ export const VideoList = props => {
             <div className="videos">
 
                 <article className="videoList">
-                    {workingVideos.length < 1 ? <h1>No videos found matching set paramets</h1> : workingVideos.map(video => {
+                    {workingVideos.length < 1 ? <h1>No videos found matching set parameters</h1> : workingVideos.map(video => {
                         return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
                     })}
 
@@ -81,7 +82,10 @@ export const VideoList = props => {
 }
 
 //Handles variable number/nature of URL parameters, sets videos appropriately
-async function handleURL(props, techs, vids, setter) {
+const handleURL = async(props, techs, vids, setter) => {
+    if (props.location.pathname === "/") {
+        return vids
+    }
 
     const positionNumber = parseInt(props.match.params.positionId)
     const orientationNumber = parseInt(props.match.params.orientationId)
@@ -100,28 +104,19 @@ async function handleURL(props, techs, vids, setter) {
             return (tech.positionId === positionNumber && tech.subpositionId === subpositionNumber)
         } else if (orientationNumber && subpositionNumber) {
             return (tech.positionId === positionNumber && tech.orientationId === orientationNumber && tech.subpositionId === subpositionNumber)
-        }
+        } else {workingTechs = techs}
     })
 
-
     //Loop loop goes through all videos and returns only those with a techniqueId that matches an Id in one of the tecniques in workingTechs
-    const filteredVids = vids.filter(vid => {
+     const filteredVids = vids.filter(vid => {
         for (const tech of workingTechs) {
             if (vid.techniqueId === tech.id) {
                 return vid
             }
         }
-    })
+    })  
     setter(filteredVids)
     console.log(filteredVids)
     return filteredVids
 
 }
-
-// finalVideos !== [] ? finalVideos.map(video => {
-//     return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
-// }) :
-//     finalVideos === [] && workingVideos.length < 1 ? <h2>No videos matching your search parameters</h2> :
-//         workingVideos.map(video => {
-//             return <Video key={video.id} title={video.title} thumbnail={video.thumbnail} id={video.id} description={video.description} />
-//         })
