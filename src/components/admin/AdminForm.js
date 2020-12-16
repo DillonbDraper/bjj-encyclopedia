@@ -1,9 +1,12 @@
-import React from '.react'
-import "../../Youtubekey.js"
-import { TextField } from '@material-ui/core/TextField';
+import React from 'react'
+import TextField from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab'
-import { Button } from '@material-ui/core/Button';
-import { useEffect, useContext, useState } from 'react';
+import Button from '@material-ui/core/Button';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import { useEffect, useContext, useState, useRef } from 'react';
 import { VideoContext } from '../videos/VideoProvider';
 import { PositionContext } from '../dropdowns/PositionProvider';
 import { OrientationContext } from '../dropdowns/OrientationProvider'
@@ -28,6 +31,7 @@ export const AdminForm = () => {
     const [positionValue, setpositionValue] = useState(0)
     const [orientationValue, setOrientationValue] = useState(0)
     const [subpositionValue, setSubpositionValue] = useState(0)
+    const [ gi, setGi ] = useState("")
 
 
     const url = useRef(null)
@@ -38,9 +42,31 @@ export const AdminForm = () => {
         if (ytCode.length !== 11) {
             window.alert("Please enter valid Youtube Video URL")
         } else {
-
-        }
+            getVideoData(ytCode).then(() => {
+                let thumbnail = ytVideo.items[0].snippet.thumbnails.high.url
+                let title = ytVideo.items[0].snippet.title
+                let description = ytVideo.items[0].snippet.description
+                const objToAdd = {
+                    url,
+                    thumbnail,
+                    title,
+                    description,
+                    techniqueId: techValue,
+                    gi
+                }
+                // addVideo(objToAdd)
+                console.log(objToAdd)
+        })
     }
+    }
+
+    const handleTechniqueSubmit = () => {
+        console.log("hey")
+    }
+    
+    const handleChange = (event) => {
+        setGi(event.target.value);
+    };
 
     return (
         <>
@@ -54,21 +80,30 @@ export const AdminForm = () => {
                         'aria-label': 'Youtube URL',
                     }}
                     ref={url}
+                    required={true}
                 />
                 <Autocomplete
                     id="techniques"
                     options={techniques}
                     getOptionLabel={(tech) => tech.title}
                     style={{ width: 500 }}
-                    onChange={event, newValue => {
+                    onChange={(event, newValue) => {
                         setTechValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose a technique" variant="outlined" />}
 
                 />
 
+                <RadioGroup aria-label="gi" name="gi" value={gi} onChange={handleChange}>
+                    <FormControlLabel value={true} control={<Radio />} label="Gi" />
+                    <FormControlLabel value={false} control={<Radio />} label="No gi" />
+                </RadioGroup>
+
                 <Button variant="contained" color="primary" type="submit"
-                    onClick={handleVideoSubmit}
+                    onClick={evt => {
+                        evt.preventDefault()
+                        handleVideoSubmit()
+                    }}
                 >
                     Add to Database
                  </Button>
@@ -92,7 +127,7 @@ export const AdminForm = () => {
                     options={positions}
                     getOptionLabel={(posish) => posish.name}
                     style={{ width: 500 }}
-                    onChange={event, newValue => {
+                    onChange={(event, newValue) => {
                         setpositionValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose a position" variant="outlined" />}
@@ -104,7 +139,7 @@ export const AdminForm = () => {
                     options={orientations}
                     getOptionLabel={(orient) => orient.dominant.toString()}
                     style={{ width: 500 }}
-                    onChange={event, newValue => {
+                    onChange={(event, newValue) => {
                         setOrientationValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose an orientation" variant="outlined" />}
@@ -117,7 +152,7 @@ export const AdminForm = () => {
                     options={subpositions}
                     getOptionLabel={(sub) => sub.title}
                     style={{ width: 500 }}
-                    onChange={event, newValue => {
+                    onChange={(event, newValue) => {
                         setSubpositionValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose a subposition" variant="outlined" />}

@@ -11,6 +11,7 @@ import { PositionProvider } from "./dropdowns/PositionProvider"
 import { DropdownList } from "./dropdowns/DropdownList"
 import { OrientationProvider } from "./dropdowns/OrientationProvider"
 import { SubpositionProvider } from "./dropdowns/SubpositionProvider"
+import { AdminForm } from "./admin/AdminForm"
 import "./AppViews.css"
 
 export const AppViews = (props) => {
@@ -87,13 +88,22 @@ export const AppViews = (props) => {
                                         </>
                                 } />
 
+                                <Route exact path="/admin" render={
+                                    props =>
+                                        <>
+                                            <div className="adminPage">
+                                                <AdminForm></AdminForm>
+                                            </div>
+                                        </>
+                                } />
+
                                 <NoteProvider>
                                     <Route exact path="/videos/:videoId(\d+)" render={
                                         props =>
                                             <>
-                                            <div className="detail">
-                                                <VideoDetail {...props} />
-                                                <DropdownList {...props} />
+                                                <div className="detail">
+                                                    <VideoDetail {...props} />
+                                                    <DropdownList {...props} />
                                                 </div>
                                             </>
                                     } />
