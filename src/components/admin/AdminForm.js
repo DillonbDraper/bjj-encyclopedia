@@ -1,29 +1,51 @@
 import React from '.react'
-import TextField from '@material-ui/core/TextField';
+import "../../Youtubekey.js"
+import { TextField } from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab'
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core/Button';
 import { useEffect, useContext, useState } from 'react';
+import { VideoContext } from '../videos/VideoProvider';
+import { PositionContext } from '../dropdowns/PositionProvider';
+import { OrientationContext } from '../dropdowns/OrientationProvider'
+import { SubpositionContext } from '../dropdowns/SubpositionProvider';
+import { TechniqueContext } from '../techniques/TechniqueProvider'
+import { YoutubeContext } from './YoutubeProvider'
 
 export const AdminForm = () => {
 
+    const { addVideo } = useContext(VideoContext)
     const { positions, getPositions } = useContext(PositionContext)
     const { orientations, getOrientations } = useContext(OrientationContext)
     const { subpositions, getSubpositions } = useContext(SubpositionContext)
     const { techniques, getTechniques } = useContext(TechniqueContext)
+    const { ytVideo, setYTVideo, getVideoData } = useContext(YoutubeContext)
 
     useEffect(() => {
         getTechniques().then(getPositions).then(getOrientations).then(getSubpositions)
     }, [])
 
     const [techValue, setTechValue] = useState(0)
+    const [positionValue, setpositionValue] = useState(0)
+    const [orientationValue, setOrientationValue] = useState(0)
+    const [subpositionValue, setSubpositionValue] = useState(0)
+
 
     const url = useRef(null)
     const techName = useRef(null)
 
+    const handleVideoSubmit = () => {
+        const ytCode = url.split("v=")[1]
+        if (ytCode.length !== 11) {
+            window.alert("Please enter valid Youtube Video URL")
+        } else {
+
+        }
+    }
+
     return (
         <>
-            <h1>Please enter technique information</h1>
-            <form className="adminForm" noValidate autoComplete="off">
+            <h2>Please enter video information.  Use this form if a technique corresponding to the video exists.  Please use other form first if no technique exists</h2>
+            <form className="videoForm" noValidate autoComplete="off">
                 <TextField id="url"
                     label="Please Enter Youtube URL"
                     variant="outlined"
@@ -45,8 +67,17 @@ export const AdminForm = () => {
 
                 />
 
-                
-                <TextField id="url"
+                <Button variant="contained" color="primary" type="submit"
+                    onClick={handleVideoSubmit}
+                >
+                    Add to Database
+                 </Button>
+
+            </form>
+
+
+            <form className="techniqueForm" noValidate autoComplete="off">
+                <TextField id="techName"
                     label="Please Technique Name"
                     variant="outlined"
                     aria-describedby="standard-weight-helper-text"
@@ -62,10 +93,9 @@ export const AdminForm = () => {
                     getOptionLabel={(posish) => posish.name}
                     style={{ width: 500 }}
                     onChange={event, newValue => {
-                        setPosistionValue(newValue.id)
+                        setpositionValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose a position" variant="outlined" />}
-                    disabled={ techValue ? true : false }
 
                 />
 
@@ -78,7 +108,7 @@ export const AdminForm = () => {
                         setOrientationValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose an orientation" variant="outlined" />}
-                    disabled={ techValue ? true : false }
+                    disabled={techValue ? true : false}
 
                 />
 
@@ -91,7 +121,7 @@ export const AdminForm = () => {
                         setSubpositionValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose a subposition" variant="outlined" />}
-                    disabled={ techValue ? true : false }
+                    disabled={techValue ? true : false}
 
                 />
 
@@ -99,9 +129,11 @@ export const AdminForm = () => {
             //Add one simple text input for Name of technique
 
 
-    <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" type="submit"
+                    onClick={handleTechniqueSubmit}
+                >
                     Add to Database
-      </Button>
+                </Button>
             </form>
         </>
     )
@@ -110,7 +142,4 @@ export const AdminForm = () => {
     //add the technique to the database and apply it to the video
     //Might be much easier to seperate this into 2 forms/pages
     //Much easier in fact.  One page and then 2 submit buttons that do 2 different things
-    const handleSubmit = (url) => {
-        const ytCode = url.split("v=")[1]
-    }
 }

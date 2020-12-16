@@ -47,11 +47,12 @@ export const VideoList = props => {
             setWorkingVideos(newVideos)
         })
         } else if (gi === "both") {
-            getTechniques().then(getVideos).then(() => handleURL(props, techniques, videos, setWorkingVideos)).then(vids => setWorkingVideos(vids))
+            handleURL(props, techniques, videos, setWorkingVideos).then(vids => setWorkingVideos(vids))
             }
         
-    }, [gi])
+    }, [videos, gi])
 
+ 
 
     const handleChange = (event) => {
         setGi(event.target.value);
