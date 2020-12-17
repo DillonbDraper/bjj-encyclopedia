@@ -37,22 +37,21 @@ export const AdminForm = () => {
 
 
 
-    const handleVideoSubmit = () => {
+    const handleVideoSubmit = async () => {
         const ytCode = url.split("v=")[1]
         if (ytCode.length !== 11) {
             window.alert("Please enter valid Youtube Video URL")
         } else {
-            let objToAdd = {}
-            getVideoData(ytCode).then(res => {
-                console.log(res)
+             getVideoData(ytCode).then(res => { 
+                const videoReturn = res
                 let yesGi = true
                 if (gi === false) {
                     yesGi = false
                 }
-                let thumbnail = ytVideo.items[0].snippet.thumbnails.high.url
-                let title = ytVideo.items[0].snippet.title
-                let description = ytVideo.items[0].snippet.description
-                objToAdd = {
+                let thumbnail = videoReturn.items[0].snippet.thumbnails.high.url
+                let title = videoReturn.items[0].snippet.title
+                let description = videoReturn.items[0].snippet.description
+                let objToAdd = {
                     url,
                     thumbnail,
                     title,
@@ -62,8 +61,8 @@ export const AdminForm = () => {
                 }
                 // addVideo(objToAdd)
                 console.log(objToAdd)
-            })
-        }
+        })}
+    
     }
 
     const handleTechniqueSubmit = () => {

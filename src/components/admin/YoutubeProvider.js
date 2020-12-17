@@ -13,7 +13,6 @@ export const YoutubeProvider = props => {
 const getVideoData = (videoKey) => {
     return fetch(`${baseURL}=${videoKey}&key=${key}&part=snippet`)
       .then(res => res.json())
-      .then(setYTVideo)
   }
 
   return (
