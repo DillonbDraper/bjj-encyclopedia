@@ -42,10 +42,9 @@ export const AdminForm = () => {
         if (ytCode.length !== 11) {
             window.alert("Please enter valid Youtube Video URL")
         } else {
-             getVideoData(ytCode).then(res => { 
-                const videoReturn = res
+             const videoReturn = await getVideoData(ytCode) 
                 let yesGi = true
-                if (gi === false) {
+                if (gi === "nogi") {
                     yesGi = false
                 }
                 let thumbnail = videoReturn.items[0].snippet.thumbnails.high.url
@@ -59,9 +58,9 @@ export const AdminForm = () => {
                     techniqueId: techValue,
                     gi: yesGi
                 }
-                // addVideo(objToAdd)
+                addVideo(objToAdd)
                 console.log(objToAdd)
-        })}
+        }
     
     }
 
