@@ -33,7 +33,8 @@ export const Register = (props) => {
                             body: JSON.stringify({
                                 email: email.current.value,
                                 password: password.current.value,
-                                name: `${firstName.current.value} ${lastName.current.value}`
+                                name: `${firstName.current.value} ${lastName.current.value}`,
+                                isAdmin: false
                             })
                         })
                             .then(_ => _.json())
@@ -41,6 +42,7 @@ export const Register = (props) => {
                                 if (createdUser.hasOwnProperty("id")) {
                                     // The user id is saved under the key grappler in local Storage. Change below if needed!
                                     localStorage.setItem("grappler", createdUser.id)
+                                    localStorage.setItem("admin", createdUser.isAdmin)
                                     props.history.push("/")
                                 }
                             })

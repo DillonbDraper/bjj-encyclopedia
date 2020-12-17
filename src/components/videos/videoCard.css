@@ -1,8 +1,17 @@
 .MuiTypography-body2 {
-    max-height: 40px; 
+    max-height: 60px; 
     overflow-y: scroll
 }
 
-.makeStyles-media-10 {
-    max-width: 300px
+.card {
+    max-width: 70%;
+}
+
+.MuiCardMedia-root {
+    width: 100%;
+    height: auto;
+}
+
+.MuiCardContent-root {
+    background-color: #716a8f;
 }

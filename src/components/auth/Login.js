@@ -24,6 +24,7 @@ export const Login = props => {
                 if (exists && exists.password === password.current.value) {
                     // The user id is saved under the key grappler in local Storage. Change below if needed!
                     localStorage.setItem("grappler", exists.id)
+                    localStorage.setItem("admin", exists.isAdmin)
                     props.history.push("/")
                 } else if (exists && exists.password !== password.current.value) {
                     passwordDialog.current.showModal()

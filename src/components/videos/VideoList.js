@@ -61,15 +61,15 @@ export const VideoList = props => {
 
     return (
         <>
+            <div className="videos">
             <FormControl component="fieldset">
                 <FormLabel component="legend">Show Videos For</FormLabel>
-                <RadioGroup aria-label="gender" name="gi" value={gi} onChange={handleChange}>
+                <RadioGroup aria-label="gender" name="gi" value={gi} row={true} onChange={handleChange}>
                     <FormControlLabel value={"both"} control={<Radio />} label="Both" />
                     <FormControlLabel value={"gi"} control={<Radio />} label="Gi" />
                     <FormControlLabel value={"nogi"} control={<Radio />} label="No gi" />
                 </RadioGroup>
             </FormControl>
-            <div className="videos">
 
                 <article className="videoList">
                     {workingVideos.length < 1 ? <h1>No videos found matching set parameters</h1> : workingVideos.map(video => {

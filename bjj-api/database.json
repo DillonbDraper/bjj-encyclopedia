@@ -511,7 +511,14 @@
       "email": "dillonbdraper@gmail.com",
       "password": "grappling",
       "name": "Dillon Draper",
-      "id": 1
+      "id": 1,
+      "isAdmin": true
+    }, {
+      "email": "testemail@mail.com",
+      "password": "password",
+      "name": "Sophie Draper",
+      "id": 2,
+      "isAdmin": false
     }
   ],
   "techniques": [
