@@ -13,6 +13,7 @@ import { OrientationProvider } from "./dropdowns/OrientationProvider"
 import { SubpositionProvider } from "./dropdowns/SubpositionProvider"
 import { AdminForm } from "./admin/AdminForm"
 import "./AppViews.css"
+import { YoutubeProvider } from "./admin/YoutubeProvider"
 
 export const AppViews = (props) => {
     return (
@@ -87,16 +88,16 @@ export const AppViews = (props) => {
                                             </div>
                                         </>
                                 } />
-
-                                <Route exact path="/admin" render={
-                                    props =>
-                                        <>
-                                            <div className="adminPage">
-                                                <AdminForm></AdminForm>
-                                            </div>
-                                        </>
-                                } />
-
+                                <YoutubeProvider>
+                                    <Route exact path="/admin" render={
+                                        props =>
+                                            <>
+                                                <div className="adminPage">
+                                                    <AdminForm {...props}></AdminForm>
+                                                </div>
+                                            </>
+                                    } />
+                                </YoutubeProvider>
                                 <NoteProvider>
                                     <Route exact path="/videos/:videoId(\d+)" render={
                                         props =>

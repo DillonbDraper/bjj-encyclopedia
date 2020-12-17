@@ -6,7 +6,8 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import { useEffect, useContext, useState, useRef } from 'react';
+import FormLabel from '@material-ui/core/FormLabel';
+import { useEffect, useContext, useState } from 'react';
 import { VideoContext } from '../videos/VideoProvider';
 import { PositionContext } from '../dropdowns/PositionProvider';
 import { OrientationContext } from '../dropdowns/OrientationProvider'
@@ -31,42 +32,51 @@ export const AdminForm = () => {
     const [positionValue, setpositionValue] = useState(0)
     const [orientationValue, setOrientationValue] = useState(0)
     const [subpositionValue, setSubpositionValue] = useState(0)
-    const [ gi, setGi ] = useState("")
+    const [gi, setGi] = useState("gi")
+    const [url, setURL] = useState("")
 
 
-    const url = useRef(null)
-    const techName = useRef(null)
 
     const handleVideoSubmit = () => {
         const ytCode = url.split("v=")[1]
         if (ytCode.length !== 11) {
             window.alert("Please enter valid Youtube Video URL")
         } else {
-            getVideoData(ytCode).then(() => {
+            let objToAdd = {}
+            getVideoData(ytCode).then(res => {
+                console.log(res)
+                let yesGi = true
+                if (gi === false) {
+                    yesGi = false
+                }
                 let thumbnail = ytVideo.items[0].snippet.thumbnails.high.url
                 let title = ytVideo.items[0].snippet.title
                 let description = ytVideo.items[0].snippet.description
-                const objToAdd = {
+                objToAdd = {
                     url,
                     thumbnail,
                     title,
                     description,
                     techniqueId: techValue,
-                    gi
+                    gi: yesGi
                 }
                 // addVideo(objToAdd)
                 console.log(objToAdd)
-        })
-    }
+            })
+        }
     }
 
     const handleTechniqueSubmit = () => {
         console.log("hey")
     }
-    
+
     const handleChange = (event) => {
         setGi(event.target.value);
     };
+
+    const handleVideoChange = e => {
+        setURL(e.target.value)
+    }
 
     return (
         <>
@@ -79,13 +89,14 @@ export const AdminForm = () => {
                     inputProps={{
                         'aria-label': 'Youtube URL',
                     }}
-                    ref={url}
+                    value={url}
+                    onChange={handleVideoChange}
                     required={true}
                 />
                 <Autocomplete
                     id="techniques"
                     options={techniques}
-                    getOptionLabel={(tech) => tech.title}
+                    getOptionLabel={(tech) => tech.name}
                     style={{ width: 500 }}
                     onChange={(event, newValue) => {
                         setTechValue(newValue.id)
@@ -94,10 +105,13 @@ export const AdminForm = () => {
 
                 />
 
-                <RadioGroup aria-label="gi" name="gi" value={gi} onChange={handleChange}>
-                    <FormControlLabel value={true} control={<Radio />} label="Gi" />
-                    <FormControlLabel value={false} control={<Radio />} label="No gi" />
-                </RadioGroup>
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">Gi/Nogi</FormLabel>
+                    <RadioGroup aria-label="gi" name="ginagi" value={gi} onChange={handleChange}>
+                        <FormControlLabel value={"gi"} control={<Radio />} label="gi" />
+                        <FormControlLabel value={"nogi"} control={<Radio />} label="nogi" />
+                    </RadioGroup>
+                </FormControl>
 
                 <Button variant="contained" color="primary" type="submit"
                     onClick={evt => {
@@ -119,7 +133,6 @@ export const AdminForm = () => {
                     inputProps={{
                         'aria-label': 'Technique Name',
                     }}
-                    ref={techName}
                 />
 
                 <Autocomplete
@@ -159,10 +172,6 @@ export const AdminForm = () => {
                     disabled={techValue ? true : false}
 
                 />
-
-            //Add 3 more combo boxes (four for grip) and cause them to be disabled if a technique is chosen, otherwise have position/sub/orientation as options
-            //Add one simple text input for Name of technique
-
 
                 <Button variant="contained" color="primary" type="submit"
                     onClick={handleTechniqueSubmit}
