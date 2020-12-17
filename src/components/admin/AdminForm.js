@@ -10,7 +10,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { useEffect, useContext, useState } from 'react';
 import { VideoContext } from '../videos/VideoProvider';
 import { PositionContext } from '../dropdowns/PositionProvider';
-import { OrientationContext } from '../dropdowns/OrientationProvider'
+import { OrientationContext, OrientationProvider } from '../dropdowns/OrientationProvider'
 import { SubpositionContext } from '../dropdowns/SubpositionProvider';
 import { TechniqueContext } from '../techniques/TechniqueProvider'
 import { YoutubeContext } from './YoutubeProvider'
@@ -21,7 +21,7 @@ export const AdminForm = () => {
     const { positions, getPositions } = useContext(PositionContext)
     const { orientations, getOrientations } = useContext(OrientationContext)
     const { subpositions, getSubpositions } = useContext(SubpositionContext)
-    const { techniques, getTechniques } = useContext(TechniqueContext)
+    const { techniques, getTechniques, addTechnique } = useContext(TechniqueContext)
     const { ytVideo, setYTVideo, getVideoData } = useContext(YoutubeContext)
 
     useEffect(() => {
@@ -34,6 +34,7 @@ export const AdminForm = () => {
     const [subpositionValue, setSubpositionValue] = useState(0)
     const [gi, setGi] = useState("gi")
     const [url, setURL] = useState("")
+    const [techFormValue, setTechFormValue] = useState(0)
 
 
 
@@ -65,10 +66,17 @@ export const AdminForm = () => {
     }
 
     const handleTechniqueSubmit = () => {
-        console.log("hey")
+        const newTechObject = {
+            name: techFormValue,
+            positionId: positionValue,
+            orientationId: orientationValue,
+            subpositionId: subpositionValue
+
+        }
+        addTechnique(newTechObject)
     }
 
-    const handleChange = (event) => {
+    const handleGiChange = (event) => {
         setGi(event.target.value);
     };
 
@@ -76,9 +84,13 @@ export const AdminForm = () => {
         setURL(e.target.value)
     }
 
+    const handleTechChange = e => {
+        setTechFormValue(e.target.value)
+    }
+
     return (
         <>
-            <h2>Please enter video information.  Use this form if a technique corresponding to the video exists.  Please use other form first if no technique exists</h2>
+            <h2>Please enter video information.  Use this form if a technique corresponding to the video exists.  Please use other form below first if no matching technique exists</h2>
             <form className="videoForm" noValidate autoComplete="off">
                 <TextField id="url"
                     label="Please Enter Youtube URL"
@@ -105,7 +117,7 @@ export const AdminForm = () => {
 
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Gi/Nogi</FormLabel>
-                    <RadioGroup aria-label="gi" name="ginagi" value={gi} onChange={handleChange}>
+                    <RadioGroup aria-label="gi" name="ginagi" value={gi} onChange={handleGiChange}>
                         <FormControlLabel value={"gi"} control={<Radio />} label="gi" />
                         <FormControlLabel value={"nogi"} control={<Radio />} label="nogi" />
                     </RadioGroup>
@@ -122,20 +134,22 @@ export const AdminForm = () => {
 
             </form>
 
-
+                    <h3>This Form is for adding Techniques</h3>
             <form className="techniqueForm" noValidate autoComplete="off">
                 <TextField id="techName"
-                    label="Please Technique Name"
+                    label="Enter Technique Name"
+                    required={true}
                     variant="outlined"
                     aria-describedby="standard-weight-helper-text"
-                    inputProps={{
-                        'aria-label': 'Technique Name',
-                    }}
+                    value={techFormValue}
+                    onChange={handleTechChange}
+                    
                 />
 
                 <Autocomplete
                     id="positions"
                     options={positions}
+                    required={true}
                     getOptionLabel={(posish) => posish.name}
                     style={{ width: 500 }}
                     onChange={(event, newValue) => {
@@ -148,31 +162,34 @@ export const AdminForm = () => {
                 <Autocomplete
                     id="orientation"
                     options={orientations}
+                    required={true}
                     getOptionLabel={(orient) => orient.dominant.toString()}
                     style={{ width: 500 }}
                     onChange={(event, newValue) => {
                         setOrientationValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose an orientation" variant="outlined" />}
-                    disabled={techValue ? true : false}
 
                 />
 
                 <Autocomplete
                     id="subposition"
+                    required={true}
                     options={subpositions}
-                    getOptionLabel={(sub) => sub.title}
+                    getOptionLabel={(sub) => sub.name}
                     style={{ width: 500 }}
                     onChange={(event, newValue) => {
                         setSubpositionValue(newValue.id)
                     }}
                     renderInput={(params) => <TextField {...params} label="Choose a subposition" variant="outlined" />}
-                    disabled={techValue ? true : false}
 
                 />
 
                 <Button variant="contained" color="primary" type="submit"
-                    onClick={handleTechniqueSubmit}
+                    onClick={evt => {
+                        evt.preventDefault()
+                        handleTechniqueSubmit()
+                    }}
                 >
                     Add to Database
                 </Button>

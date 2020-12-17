@@ -197,6 +197,15 @@
       "techniqueId": 1,
       "gi": false,
       "id": 26
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RxeoqJaEK6w",
+      "thumbnail": "https://i.ytimg.com/vi/RxeoqJaEK6w/hqdefault.jpg",
+      "title": "Babybolo from De La Riva",
+      "description": "Professor Danny demonstrates how to attack your opponents back using the Babybolo from De La Riva guard.\n\nTo learn more from Professor Danny, check out his DVD with BJJ Fanatics:\n\nDe La Riva Fundamentals by Danny Stolfi\nhttps://bjjfanatics.com/products/de-la-riva-fundamentals-by-danny-stolfi#\n\nOR\n\nCome train with us!\n\nAcademy Contact:\nemail: info@breathejiujitsu.com\nwebsite: https://www.breathejiujitsu.com\ninstagram: @breathejiujitsu\nfacebook: Breathe Jiu Jitsu Academy\naddress: 751 Montauk Highway, Bayport, NY 11705",
+      "techniqueId": 22,
+      "gi": true,
+      "id": 27
     }
   ],
   "positions": [
@@ -652,6 +661,13 @@
       "positionId": 4,
       "orientationId": 2,
       "subpositionId": 15
+    },
+    {
+      "name": "Babybolo from De La Riva",
+      "positionId": 1,
+      "orientationId": 2,
+      "subpositionId": 4,
+      "id": 22
     }
   ]
 }
