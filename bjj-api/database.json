@@ -504,6 +504,20 @@
       "videoId": 4,
       "userId": 1,
       "id": 9
+    },
+    {
+      "id": 10,
+      "text": "This is a test note.",
+      "time": "",
+      "videoId": 1,
+      "userId": 1
+    },
+    {
+      "id": 11,
+      "text": "I love butterfly",
+      "time": "",
+      "videoId": 5,
+      "userId": 1
     }
   ],
   "users": [
@@ -513,7 +527,8 @@
       "name": "Dillon Draper",
       "id": 1,
       "isAdmin": true
-    }, {
+    },
+    {
       "email": "testemail@mail.com",
       "password": "password",
       "name": "Sophie Draper",

@@ -22,13 +22,14 @@ export const NoteList = props => {
                 return <Note key={note.id} id={note.id} text={note.text} videoNumber={props.match.params.videoId}/>
             })
             }
-                <Button onClick={() => setAdd(true)} color="primary" variant="outlined">Add Note</Button>
-
-                
-              {
+            {
                 //Only display NoteForm if add is set to true by clicking the button
                 add ? <NoteForm videoNumber={props.match.params.videoId} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
+                <Button onClick={() => setAdd(true)} color="secondary" variant="contained">Add Note</Button>
+
+                
+              
         </div>
     )
 

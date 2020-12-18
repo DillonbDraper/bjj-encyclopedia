@@ -1,8 +1,9 @@
 import React, { useRef, useContext } from 'react'
 import Button from '@material-ui/core/Button';
 import { NoteContext } from "./NoteProvider"
+import "./Note.css"
 
-export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId }) => {
+export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId, setHider }) => {
     const text = useRef(null)
     const { addNote, updateNote } = useContext(NoteContext)
 
@@ -26,6 +27,7 @@ export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditM
                 }
                 updateNote(newNote)
                 setEditMode(false)
+                setHider(false)
             } else {
 
                 const newNote = {
@@ -43,14 +45,14 @@ export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditM
 
     return (
         <form className="noteForm">
-            <fieldset>
+            <fieldset className="noteForm">
                 <div className="form-group">
                     <label htmlFor="noteBody"></label>
-                    <input type="text" id="noteBody" ref={text} required autoFocus className="form-control" placeholder={"Enter text here"} defaultValue={noteText} />
+                    <input type="text"style={{width: "100%"}}id="noteBody" ref={text} className="noteInput" required autoFocus className="form-control" placeholder={"Enter text here"} defaultValue={noteText} />
                 </div>
             </fieldset>
 
-            <Button variant ="outlined" type="submit" onClick={evt => {
+            <Button variant ="contained" color="secondary" type="submit" style={{marginBottom: '3%'}} onClick={evt => {
                 evt.preventDefault()
                 constructNewNote()
             }

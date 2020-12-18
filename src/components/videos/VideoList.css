@@ -1,4 +1,9 @@
 .videos {
-    height: 35em;
+    max-width: 33%;
+}
+
+.videoList {
+    height: 511px;
+    max-width: 100%;
     overflow-y: scroll;
 }

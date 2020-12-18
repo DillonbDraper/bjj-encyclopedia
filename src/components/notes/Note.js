@@ -13,13 +13,15 @@ import './Note.css'
 export const Note = (props) => {
     const { deleteNote } = useContext(NoteContext)
     const [ editMode, setEditMode ] = useState(false)
+    const [ hider, setHider ] = useState(false)
+    
     return (
         <>
             {
             //Displays the NoteForm if editMode is true, passes in props to prepoluate it 
-            editMode ? <NoteForm editMode={editMode} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""
+            editMode ? <NoteForm editMode={editMode} setHider={setHider} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""
             }
-            <List className="note">
+            <List className="note" hidden={hider}> 
                 <ListItem>
                     <ListItemText
                         primary={props.text}
@@ -28,6 +30,7 @@ export const Note = (props) => {
                     <IconButton
                     onClick={() => {
                         setEditMode(true)
+                        setHider(true)
                     }} 
                     edge="end" 
                     aria-label="edit">
