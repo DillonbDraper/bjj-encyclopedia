@@ -464,13 +464,6 @@
       "userId": 1
     },
     {
-      "id": 4,
-      "text": "Note two",
-      "time": "",
-      "videoId": 2,
-      "userId": 1
-    },
-    {
       "text": "LGTM",
       "time": "",
       "videoId": 13,
@@ -518,6 +511,13 @@
       "time": "",
       "videoId": 5,
       "userId": 1
+    },
+    {
+      "text": "This is a test note.",
+      "time": "",
+      "videoId": 10,
+      "userId": 1,
+      "id": 12
     }
   ],
   "users": [

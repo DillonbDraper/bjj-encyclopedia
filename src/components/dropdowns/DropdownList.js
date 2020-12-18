@@ -7,6 +7,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { OrientandSubDropdown } from "./OrientandSubDropdown"
 import { Button } from '@material-ui/core';
 import { TechniqueList } from '../techniques/TechniqueList'
+import './Dropdown.css'
 
 export const DropdownList = props => {
 

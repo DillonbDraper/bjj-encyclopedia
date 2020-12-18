@@ -26,11 +26,11 @@ export const VideoDetail = (props) => {
         <ReactPlayer url={video.url} 
         className="player" 
         controls={true}
-        width='50%'
+        width='100%'
         height='30em'
         />
-        </div>
         <NoteList {...props} />
+        </div>
         </>
     )
 }
