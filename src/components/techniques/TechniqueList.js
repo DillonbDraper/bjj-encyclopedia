@@ -33,7 +33,7 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
     //May want to refactor to display all techniques when no values are selected, but would need to come with CSS limitations or else it would be a massive mess
     return (
         <>
-        <h2>Techniques</h2>
+        <h2 className="technique__header">Techniques</h2>
         <div className="techniques">
             <ul className="tech__list">
                 { workingTechniques.map(tech => {

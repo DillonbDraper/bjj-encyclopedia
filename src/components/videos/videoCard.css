@@ -23,3 +23,11 @@
 .MuiButtonBase-root {
     background-color: #716a8f
 }
+
+.MuiTypography-colorTextSecondary {
+    color: white !important; 
+}
+
+.MuiTypography-h5 {
+    color: white
+}

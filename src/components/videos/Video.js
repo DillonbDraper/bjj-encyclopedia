@@ -34,6 +34,7 @@ export const Video = (props) => {
                         image={props.thumbnail}
                         title={props.title}
                         style={{backgroundColor: "#716a8f"}}
+                        color="textSecondary"
                     />
                 </CardActionArea>
             </Link>

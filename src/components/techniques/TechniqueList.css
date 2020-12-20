@@ -9,8 +9,16 @@
 
 .tech__list {
     list-style-type: none;
+    color: white !important;
 }
 
 .technique__link {
     margin-right: 1em;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 2%;
+}
+
+.technique__header {
+    color: white
 }

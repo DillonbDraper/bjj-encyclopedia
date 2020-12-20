@@ -7,3 +7,11 @@
     max-width: 100%;
     overflow-y: scroll;
 }
+
+.MuiTypography-body1 {
+    color: white;
+}
+
+.MuiFormControl-root {
+    color: white;
+}

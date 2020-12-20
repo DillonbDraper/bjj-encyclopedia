@@ -206,6 +206,15 @@
       "techniqueId": 22,
       "gi": true,
       "id": 27
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=5tQmr_iYzBo",
+      "thumbnail": "https://i.ytimg.com/vi/5tQmr_iYzBo/hqdefault.jpg",
+      "title": "Roger Gracie, Cross Collar Choke: Jiu-Jitsu Magazine, Issue #27.",
+      "description": "Guess who's back? Roger Gracie hasn't competed in jiu-jitsu since Metamoris 1 in 2012 since he's been focusing on his MMA career; however, he has intentions of returning to compete in super fights come next year. If you're not in the know of who Roger Gracie is he's a 14x World, (most of those at black belt), ADCC, Brazilian Nationals, and Pan Americans champion. Utilizing the basics of jiu-jitsu Roger has choked out many of the best of the best. For more information on him be sure to check out https://www.rogergracie.com.\n\nIn this video Roger a thorough explanation of the cross collar choke. Assisting him is 2014 No-Gi World Champion, AJ Agazarm. \n\nFor more information on Roger, a break down of this move and others he demonstrates, other great techniques, news, product reviews, nutritional advice, conditioning programs, supplements information, and more check out issue #27 of Jiu-Jitsu Magazine. Be sure to get your subscription today at http://jiujitsumag.com/.\n\nCheck out all the latest and greatest videos on any and everything jiu-jitsu related on http://iroll.tv/.\n\nFollow us on...\nhttps://www.facebook.com/JiuJitsumag\nhttps://www.facebook.com/irolltv\nhttp://www.youtube.com/JiuJitsuMag\nhttps://twitter.com/jitsumag\nhttp://instagram.com/jiujitsumag",
+      "techniqueId": 15,
+      "gi": true,
+      "id": 28
     }
   ],
   "positions": [
@@ -450,25 +459,11 @@
   ],
   "notes": [
     {
-      "id": 1,
-      "text": "This is the first note I am creating.  I don't need to take personal notes on the butterfly sweep",
-      "time": "",
-      "videoId": 1,
-      "userId": 1
-    },
-    {
       "id": 3,
       "text": "Hello how are you",
       "time": "",
       "videoId": 2,
       "userId": 1
-    },
-    {
-      "text": "LGTM",
-      "time": "",
-      "videoId": 13,
-      "userId": 1,
-      "id": 5
     },
     {
       "text": "Behold: A note",
@@ -499,13 +494,6 @@
       "id": 9
     },
     {
-      "id": 10,
-      "text": "This is a test note.",
-      "time": "",
-      "videoId": 1,
-      "userId": 1
-    },
-    {
       "id": 11,
       "text": "I love butterfly",
       "time": "",
@@ -518,6 +506,13 @@
       "videoId": 10,
       "userId": 1,
       "id": 12
+    },
+    {
+      "id": 13,
+      "text": "Whatever goes here part 2",
+      "time": "",
+      "videoId": 13,
+      "userId": 1
     }
   ],
   "users": [
