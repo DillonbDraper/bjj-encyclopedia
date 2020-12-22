@@ -92,6 +92,7 @@ export const DropdownList = props => {
         orientationValue={orientationValue}
         positionValue={positionValue}
         subpositionValue={subpositionValue}
+        history={props.history}
       >
 
       </TechniqueList>
