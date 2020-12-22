@@ -90,6 +90,17 @@ export const AppViews = (props) => {
                                             </div>
                                         </main>
                                 } />
+
+                                <Route exact path="/techName/:techniqueName" render={
+                                    props =>
+                                        <main className="container">
+                                            <Logo className="logo" />
+                                            <div className="main">
+                                                <VideoList {...props} />
+                                                <DropdownList {...props} />
+                                            </div>
+                                        </main>
+                                } />
                                 <YoutubeProvider>
                                     <Route exact path="/admin" render={
                                         props =>

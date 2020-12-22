@@ -29,7 +29,7 @@ export const VideoList = props => {
 
     //Alters videos displayed based on if URL has a positionId or techniqueId or neither.
     useEffect(() => {
-        if (props.match.params.positionId || props.match.params.techniqueId) {
+        if (props.match.params.positionId || props.match.params || props.match.params.techniqueName) {
             handleURL(props, techniques, videos, setWorkingVideos)
         }
 
@@ -86,6 +86,23 @@ export const VideoList = props => {
 const handleURL = async(props, techs, vids, setter) => {
     if (props.location.pathname === "/") {
         return vids
+    }
+
+    if (props.match.params.techniqueName) {
+        const techString = props.match.params.techniqueName.toLowerCase()
+        const theTechs = techs.filter(tech => tech.name.toLowerCase().includes(techString))
+
+        const filteredVids = vids.filter(vid => {
+            for (const tech of theTechs) {
+                if (vid.techniqueId === tech.id) {
+                    return vid
+                }
+            }
+        })  
+
+        setter(filteredVids)
+        return filteredVids
+        
     }
 
     const positionNumber = parseInt(props.match.params.positionId)
