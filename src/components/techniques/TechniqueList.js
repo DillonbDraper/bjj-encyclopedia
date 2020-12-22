@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react"
 import { TechniqueContext } from "./TechniqueProvider"
 import { Technique } from "./Technique"
 import "./TechniqueList.css"
+import TextField from '@material-ui/core/TextField';
 
 export const TechniqueList = ({ positionValue, orientationValue, subpositionValue }) => {
-    const {techniques, getTechniques } = useContext(TechniqueContext)
-    const [ workingTechniques, setWorkingTechniques ] = useState([])
+    const { techniques, getTechniques } = useContext(TechniqueContext)
+    const [workingTechniques, setWorkingTechniques] = useState([])
+    const [textInput, setTextInput] = useState("")
 
     useEffect(() => {
         getTechniques()
@@ -14,12 +16,12 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
     //Listens to values passed in as props, only displays the techniques that match currently selected values
     useEffect(() => {
         let techsToSet = techniques.filter(tech => {
-            return tech.positionId === positionValue.id 
-        }) 
-        
+            return tech.positionId === positionValue.id
+        })
+
         if (orientationValue && orientationValue.id) {
             techsToSet = techsToSet.filter(tech => {
-               return tech.orientationId === orientationValue.id
+                return tech.orientationId === orientationValue.id
             })
         }
 
@@ -29,19 +31,34 @@ export const TechniqueList = ({ positionValue, orientationValue, subpositionValu
         setWorkingTechniques(techsToSet)
     }, [positionValue, orientationValue, subpositionValue])
 
-    
+    useEffect(() => {
+        if (textInput !== "" && textInput !== undefined) {
+            setWorkingTechniques(techniques.filter(tech => tech.name.includes(textInput)))
+        }
+    }, [textInput])
+
+    const handleChange = e => {
+        setTextInput(e.target.value)
+    }
+
+
     //May want to refactor to display all techniques when no values are selected, but would need to come with CSS limitations or else it would be a massive mess
     return (
         <>
-        <h2 className="technique__header">Techniques</h2>
-        <div className="techniques">
-            <ul className="tech__list">
-                { workingTechniques.map(tech => {
+            <form noValidate autoComplete="off">
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" placeholder="Please Enter Techniques" defaultValue={textInput}
+                onChange={handleChange}
+                />
+            </form>
+            <h2 className="technique__header">Techniques</h2>
+            <div className="techniques">
+                <ul className="tech__list">
+                    {workingTechniques.map(tech => {
                         return (<Technique key={tech.id} id={tech.id} name={tech.name}></Technique>)
                     })
-                }
-            </ul>
-        </div>
+                    }
+                </ul>
+            </div>
         </>
     )
 

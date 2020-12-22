@@ -215,6 +215,15 @@
       "techniqueId": 15,
       "gi": true,
       "id": 28
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ETpgDGw1ITs",
+      "thumbnail": "https://i.ytimg.com/vi/ETpgDGw1ITs/hqdefault.jpg",
+      "title": "The Best Double Leg Takedown For Jiu Jitsu by Marcus “Buchecha” Almeida",
+      "description": "The Best Double Leg Takedown For Jiu Jitsu by Marcus “Buchecha” Almeida\n-\nClick Here To Check Out Marcus Almeida's Instructional Videos - https://bjjfanatics.com/collections/all/fighter_marcus-almeida\n-\n\nDownload Bernardo Faria's FREE Ebook  \n\"Your Guide To A Lifetime Of Enjoying & Improving Your Brazilian Jiu-Jitsu\" Click In The Link Below:\nhttps://bernardofaria.com/e-book-download/\n-\n\"Bernardo Faria is a 5x World Champion. Bernardo started training Brazilian Jiu-Jitsu in Juiz de Fora - MG, Brazil at the age of 14 in 2001. After receiving the Black Belt from his first instructor Ricardo Marques in 2008, He moved to Sao Paulo to join BJJ legend Fabio Gurgel and his Alliance team. After many years of training and winning many major titles, Bernardo moved to NYC in 2013 to train and teach at Marcelo Garcia Academy. In 2015 Bernardo achieved his dream of winning the IBJJF World Championship Open class title and his division, doing the double Gold and becoming the 1st in the IBJJF Ranking and also choosed as the best athlete of 2015. \n\nBernardo Faria has now taken on the mission to share some of the lessons, techniques, experiences and more that he has learned along in his 16 years and counting as a BJJ student, teacher and world class competitor.\n\nSubscribe to his channel, and join him in this amazing BJJ Journey. We promise that you will also improve your BJJ with his awesome Video Lessons, Episodes of his \"5 Minutes BJJ Talk\" and more...\n\nwww.fujisports.com -  15% OFF Coupon Code: FARIA15\n\nwww.bjjfanatics.com - 10% OFF Coupon Code: YOUTUBEFARIA\n\nwww.fujimats.com - 10% OFF Coupon Code: FARIAMAT10\n\nhttp://bernardofaria.com\nhttps://www.facebook.com/bernardofariabjj/\nhttps://www.instagram.com/bernardofariabjj/\nhttps://twitter.com/bernardofariajj",
+      "techniqueId": 23,
+      "gi": true,
+      "id": 29
     }
   ],
   "positions": [
@@ -466,20 +475,6 @@
       "userId": 1
     },
     {
-      "text": "Behold: A note",
-      "time": "",
-      "videoId": 3,
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "text": "Now I shall create a wholly unreasonably long note that no one could ever hope to take so that I will create the ability for people to take nothing of value from this.  This is a test to see how exceedingly long notes look and are handled.  Hahahahaha.",
-      "time": "",
-      "videoId": 3,
-      "userId": 1,
-      "id": 7
-    },
-    {
       "text": "Notely Note",
       "time": "",
       "videoId": 4,
@@ -498,20 +493,6 @@
       "text": "I love butterfly",
       "time": "",
       "videoId": 5,
-      "userId": 1
-    },
-    {
-      "text": "This is a test note.",
-      "time": "",
-      "videoId": 10,
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "id": 13,
-      "text": "Whatever goes here part 2",
-      "time": "",
-      "videoId": 13,
       "userId": 1
     }
   ],
@@ -685,6 +666,13 @@
       "orientationId": 2,
       "subpositionId": 4,
       "id": 22
+    },
+    {
+      "name": "Double Leg Takedown",
+      "positionId": 3,
+      "orientationId": 1,
+      "subpositionId": 1,
+      "id": 23
     }
   ]
 }
