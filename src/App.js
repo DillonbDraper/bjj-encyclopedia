@@ -4,15 +4,17 @@ import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
 import './App.css';
 import { AppViews } from "./components/AppViews";
+import { Header } from "./components/Header";
 
-function App() {
+function App(props) {
   return (
 <>
-    <Route render={() => {
+    <Route render={props => {
       // The user id is saved under the key app_user_id in local Storage. Change below if needed!
         if (localStorage.getItem("grappler")) {
             return (
               <>
+                <Header {...props}/>
                 <AppViews />
               </>
             )

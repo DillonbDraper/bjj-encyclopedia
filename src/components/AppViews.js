@@ -14,6 +14,7 @@ import { SubpositionProvider } from "./dropdowns/SubpositionProvider"
 import { AdminForm } from "./admin/AdminForm"
 import "./AppViews.css"
 import { YoutubeProvider } from "./admin/YoutubeProvider"
+import { Header } from "./Header"
 
 export const AppViews = (props) => {
     const isAdmin = localStorage.getItem("admin")

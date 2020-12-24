@@ -134,7 +134,6 @@ const handleURL = async(props, techs, vids, setter) => {
         }
     })  
     setter(filteredVids)
-    console.log(filteredVids)
     return filteredVids
 
 }
