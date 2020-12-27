@@ -13,3 +13,11 @@
 .saveButton {
     margin-bottom: 100px;
 }
+
+.timeStamp {
+    cursor: pointer;
+    font-size: large;
+    margin-right: 3%;
+    text-decoration: underline;
+    color: #5f0826;
+}
