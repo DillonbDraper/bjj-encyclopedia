@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { NoteContext } from "./NoteProvider"
 import "./Note.css"
 
-export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId, noteTime, setHider, playing, setPlaying, time, vidTime }) => {
+export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId, noteTime, setHider, playing, setPlaying, player, vidTime }) => {
     const text = useRef(null)
     const { addNote, updateNote } = useContext(NoteContext)
 

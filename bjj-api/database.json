@@ -466,7 +466,15 @@
       "dominant": false
     }
   ],
-  "notes": [],
+  "notes": [
+    {
+      "text": "I love butterfly",
+      "time": 48,
+      "videoId": 1,
+      "userId": 1,
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "dillonbdraper@gmail.com",

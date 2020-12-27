@@ -9,11 +9,25 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { NoteContext } from "./NoteProvider"
 import { NoteForm } from './NoteForm';
 import './Note.css'
+import { createReactPlayer } from 'react-player/lib/ReactPlayer';
+import Player from 'react-player/lib/Player';
 
 export const Note = (props) => {
     const { deleteNote } = useContext(NoteContext)
     const [ editMode, setEditMode ] = useState(false)
     const [ hider, setHider ] = useState(false)
+
+    const handleTimeStamp = stamp => {
+        if (stamp < 60) {
+            return `0:${stamp}`
+        } else if (stamp === 60) {
+            return `1:00`
+        } else {
+            const minutes = Math.floor(stamp / 60)
+            const seconds = stamp % 60
+            return `${minutes}:${seconds}`
+        }
+    }
     
     return (
         <>
@@ -23,6 +37,14 @@ export const Note = (props) => {
             }
             <List className="note" hidden={hider}> 
                 <ListItem>
+                    <p 
+                    className="timeStamp"
+                    onClick={() => {
+                        console.log(props.player)
+                        props.player.current.seekTo(props.timeStamp)
+                    }}
+                     >
+                         {handleTimeStamp(props.timeStamp)}</p>
                     <ListItemText
                         primary={props.text}
                     />

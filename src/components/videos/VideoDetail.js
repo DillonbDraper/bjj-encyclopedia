@@ -10,7 +10,7 @@ export const VideoDetail = (props) => {
     const [video, setVideo] = useState({})
     const [playing, setPlaying] = useState(false)
 
-    const time = useRef(null)
+    const player = useRef(null)
 
     useEffect(() => {
         getVideos()
@@ -32,9 +32,9 @@ export const VideoDetail = (props) => {
         width='100%'
         playing={playing}
         height='30em'
-        ref={time}
+        ref={player}
         />
-        <NoteList {...props} time={time} playing={playing} setPlaying={setPlaying} />
+        <NoteList {...props} player={player} playing={playing} setPlaying={setPlaying} />
         </div>
         </>
     )
