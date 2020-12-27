@@ -25,7 +25,11 @@ export const Note = (props) => {
         } else {
             const minutes = Math.floor(stamp / 60)
             const seconds = stamp % 60
+            if (seconds < 10) {
+            return `${minutes}:0${seconds}`
+            } else {
             return `${minutes}:${seconds}`
+            }
         }
     }
     
@@ -33,7 +37,7 @@ export const Note = (props) => {
         <>
             {
             //Displays the NoteForm if editMode is true, passes in props to prepoluate it 
-            editMode ? <NoteForm editMode={editMode} setHider={setHider} setEditMode={setEditMode} noteText={props.text} noteId={props.id} videoNumber={props.videoNumber}/>  : ""
+            editMode ? <NoteForm editMode={editMode} setHider={setHider} setEditMode={setEditMode} noteText={props.text} noteTime={props.timeStamp} noteId={props.id} videoNumber={props.videoNumber}/>  : ""
             }
             <List className="note" hidden={hider}> 
                 <ListItem>
