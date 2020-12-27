@@ -7,7 +7,7 @@ import "./NoteList.css"
 
 export const NoteList = props => {
     const { notes, getNotes } = useContext(NoteContext)
-
+    const [vidTime, setVidTime] = useState(0)
 
 
     useEffect(() => getNotes(), [])
@@ -23,10 +23,16 @@ export const NoteList = props => {
             })
             }
             {
-                //Only display NoteForm if add is set to true by clicking the button
-                add ? <NoteForm videoNumber={props.match.params.videoId} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
+                //Only display NoteForm and pause video if add is set to true by clicking the button
+                add ? <NoteForm videoNumber={props.match.params.videoId} playing={props.playing} vidTime={vidTime} setPlaying={props.setPlaying} time={props.time} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
-                <Button onClick={() => setAdd(true)} color="secondary" variant="contained">Add Note</Button>
+                <Button onClick={() => {
+                    props.setPlaying(true)
+                    console.log(props.playing)
+                    setVidTime(Math.round(props.time.current.getCurrentTime()))
+                    console.log(vidTime)
+                    setAdd(true)
+                    }} color="secondary" variant="contained">Add Note</Button>
 
                 
               

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import ReactPlayer from 'react-player/youtube'
 import { VideoContext } from './VideoProvider';
 import { NoteList } from "../notes/NoteList"
@@ -8,6 +8,9 @@ export const VideoDetail = (props) => {
     const {videos, getVideos} = useContext(VideoContext)
 
     const [video, setVideo] = useState({})
+    const [playing, setPlaying] = useState(false)
+
+    const time = useRef(null)
 
     useEffect(() => {
         getVideos()
@@ -27,9 +30,11 @@ export const VideoDetail = (props) => {
         className="player" 
         controls={true}
         width='100%'
+        playing={playing}
         height='30em'
+        ref={time}
         />
-        <NoteList {...props} />
+        <NoteList {...props} time={time} playing={playing} setPlaying={setPlaying} />
         </div>
         </>
     )

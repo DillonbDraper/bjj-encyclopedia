@@ -466,29 +466,7 @@
       "dominant": false
     }
   ],
-  "notes": [
-    {
-      "text": "Notely Note",
-      "time": "",
-      "videoId": 4,
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "text": "okay",
-      "time": "",
-      "videoId": 4,
-      "userId": 1,
-      "id": 9
-    },
-    {
-      "id": 11,
-      "text": "I love butterfly",
-      "time": "",
-      "videoId": 5,
-      "userId": 1
-    }
-  ],
+  "notes": [],
   "users": [
     {
       "email": "dillonbdraper@gmail.com",

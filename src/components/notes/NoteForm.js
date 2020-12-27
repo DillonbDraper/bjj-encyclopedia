@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { NoteContext } from "./NoteProvider"
 import "./Note.css"
 
-export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId, setHider }) => {
+export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditMode, noteId, noteTime, setHider, playing, setPlaying, time, vidTime }) => {
     const text = useRef(null)
     const { addNote, updateNote } = useContext(NoteContext)
 
@@ -16,12 +16,11 @@ export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditM
             window.alert("Please enter a note before attempting to save")
         } else {
 
-            //Time is always an empty string as a placeholder for stretch goal
             if (editMode) {
                 const newNote = {
                     id: noteId,
                     text: text.current.value,
-                    time: "",
+                    time: noteTime,
                     videoId,
                     userId
                 }
@@ -32,13 +31,14 @@ export const NoteForm = ({ videoNumber, noteSetAdd, noteText, editMode, setEditM
 
                 const newNote = {
                     text: text.current.value,
-                    time: "",
+                    time: vidTime,
                     videoId,
                     userId
                 }
 
                 addNote(newNote)
                 noteSetAdd(false)
+                setPlaying(true)
             }
         }
     }
