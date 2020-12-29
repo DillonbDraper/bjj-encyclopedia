@@ -46,6 +46,7 @@ export const Note = (props) => {
                     onClick={() => {
                         console.log(props.player)
                         props.player.current.seekTo(props.timeStamp)
+                        props.setPlaying(false)
                     }}
                      >
                          {handleTimeStamp(props.timeStamp)}</p>

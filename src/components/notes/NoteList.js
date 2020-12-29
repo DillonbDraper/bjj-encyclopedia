@@ -19,7 +19,7 @@ export const NoteList = props => {
     return (
         <div className="note__list">
             {notesToRender.map(note => {
-                return <Note key={note.id} id={note.id} text={note.text} player={props.player} timeStamp={note.time} videoNumber={props.match.params.videoId}/>
+                return <Note key={note.id} id={note.id} text={note.text} setPlaying={props.setPlaying} player={props.player} timeStamp={note.time} videoNumber={props.match.params.videoId}/>
             })
             }
             {
@@ -27,7 +27,8 @@ export const NoteList = props => {
                 add ? <NoteForm videoNumber={props.match.params.videoId} playing={props.playing} vidTime={vidTime} setPlaying={props.setPlaying} player={props.player} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
                 <Button onClick={() => {
-                    props.setPlaying(true)
+                    console.log(props.playing)
+                    props.setPlaying(false)
                     console.log(props.playing)
                     setVidTime(Math.round(props.player.current.getCurrentTime()))
                     console.log(vidTime)

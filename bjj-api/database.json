@@ -468,11 +468,18 @@
   ],
   "notes": [
     {
-      "text": "Hello there",
-      "time": 57,
+      "text": "Hi",
+      "time": 73,
       "videoId": 1,
       "userId": 1,
       "id": 1
+    },
+    {
+      "text": "asdf",
+      "time": 13,
+      "videoId": 10,
+      "userId": 1,
+      "id": 2
     }
   ],
   "users": [
