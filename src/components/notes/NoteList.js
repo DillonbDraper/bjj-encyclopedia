@@ -26,12 +26,9 @@ export const NoteList = props => {
                 //Only display NoteForm and pause video if add is set to true by clicking the button
                 add ? <NoteForm videoNumber={props.match.params.videoId} playing={props.playing} vidTime={vidTime} setPlaying={props.setPlaying} player={props.player} noteAdd={add} noteSetAdd={setAdd}></NoteForm> : ""
               }
-                <Button onClick={() => {
-                    console.log(props.playing)
+                <Button style={{marginTop: "2%"}} onClick={() => {
                     props.setPlaying(false)
-                    console.log(props.playing)
                     setVidTime(Math.round(props.player.current.getCurrentTime()))
-                    console.log(vidTime)
                     setAdd(true)
                     }} color="secondary" variant="contained">Add Note</Button>
 
