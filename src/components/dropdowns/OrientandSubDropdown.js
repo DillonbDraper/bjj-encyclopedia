@@ -43,7 +43,9 @@ export const OrientandSubDropdown = ({ positionValue, orientationValue, setOrien
                         return "Inferior"
                     }
                 }}
-                style={{ width: 300 }}
+                style={{ width: 300,
+                         marginBottom: "3%"    
+                }}
                 value={orientationValue}
                 onChange={(event, newValue) => setOrientationValue(newValue)}
                 renderInput={(params) => <TextField {...params} label="Orientation" variant="outlined" />}

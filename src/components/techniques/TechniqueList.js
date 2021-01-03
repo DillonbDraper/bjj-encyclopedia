@@ -53,10 +53,11 @@ export const TechniqueList = ({ history, positionValue, orientationValue, subpos
 
     //May want to refactor to display all techniques when no values are selected, but would need to come with CSS limitations or else it would be a massive mess
     return (
-        <>
+        <div className="techSearch">
             <form noValidate autoComplete="off">
+                <div className="searchBox">
                 <TextField id="outlined-basic" label="Technique Search" variant="outlined" placeholder="Please Enter Techniques" defaultValue={textInput}
-                    onChange={handleChange} />
+                    onChange={handleChange} style={{marginTop: "15%"}} />
 
 <Button onClick={evt => {
         evt.preventDefault()
@@ -65,7 +66,13 @@ export const TechniqueList = ({ history, positionValue, orientationValue, subpos
       }
         variant="contained"
         color="primary"
+        style={{
+            marginTop: "3%",
+            width: "30%"
+        }}
+        disabled={textInput === "" || null ? true : false}
       >Search</Button>
+      </div>
             </form>
             <h2 className="technique__header">Techniques</h2>
                 <div className="techniques">
@@ -76,7 +83,7 @@ export const TechniqueList = ({ history, positionValue, orientationValue, subpos
                         }
                     </ul>
                 </div>
-        </>
+        </div>
     )
 
 

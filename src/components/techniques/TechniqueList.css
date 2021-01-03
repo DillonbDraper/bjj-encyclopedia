@@ -22,3 +22,10 @@
 .technique__header {
     color: white
 }
+
+
+
+.searchBox {
+    display: flex;
+    flex-direction: column;
+}

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 const useStyles = makeStyles({
     root: {
         maxWidth: '100%',
-        backgroundColor: "#716a8f"
+        backgroundColor: "#29a390"
     },
     media: {
         width: 480,
@@ -30,10 +30,14 @@ export const Video = (props) => {
                                 }}>
                 <CardActionArea>
                     <CardMedia
+                        component="img"
                         className={classes.media}
                         image={props.thumbnail}
                         title={props.title}
-                        style={{backgroundColor: "#716a8f"}}
+                        style={{backgroundColor: "#716a8f",
+                                marginLeft: "25%",
+                                border: "5px solid black"
+                    }}
                         color="textSecondary"
                     />
                 </CardActionArea>

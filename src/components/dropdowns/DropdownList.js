@@ -57,7 +57,9 @@ export const DropdownList = props => {
         }
         }
         getOptionSelected={(posish) => posish.id === positionValue}
-        style={{ width: 300 }}
+        style={{ width: 300,
+                marginBottom: "3%"
+         }}
         value={positionValue}
         onChange={(event, newValue) => {
           //Ensures that positionValue is never null, which causes breakage as other components listen to and depend on it.
@@ -83,6 +85,7 @@ export const DropdownList = props => {
         handleSubmit(positionValue, orientationValue, subpositionValue)
       }
       }
+        style={{marginTop: "3%"}}
         variant="contained"
         color="primary"
         disabled={positionValue === 0 ? true : false}
