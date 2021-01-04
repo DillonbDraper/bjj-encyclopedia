@@ -1,6 +1,9 @@
+
 .MuiTypography-body2 {
     max-height: 60px; 
-    overflow-y: scroll
+    overflow-y: scroll;
+    scrollbar-arrow-color: aqua;
+    scrollbar-color: green blue
 }
 
 .card {

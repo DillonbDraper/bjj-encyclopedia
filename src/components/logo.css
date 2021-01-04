@@ -1,4 +1,10 @@
 .logo {
-    max-width: 40%;
-    height: 25rem
+    max-width: 32%;
+    background-color: #716a8f;
+    margin-bottom: 3%;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
 }

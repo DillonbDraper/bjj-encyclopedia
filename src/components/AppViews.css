@@ -8,11 +8,6 @@
     flex-basis: 40%
 }
 
-.logo {
-    max-height: 75%;
-    margin-left: 28em;
-}
-
 .detail {
     display: flex;
     justify-content: space-evenly;

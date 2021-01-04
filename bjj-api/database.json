@@ -468,11 +468,11 @@
   ],
   "notes": [
     {
-      "text": "Hi",
+      "id": 1,
+      "text": "I am an important part",
       "time": 73,
       "videoId": 1,
-      "userId": 1,
-      "id": 1
+      "userId": 1
     },
     {
       "text": "asdf",
@@ -480,6 +480,13 @@
       "videoId": 10,
       "userId": 1,
       "id": 2
+    },
+    {
+      "id": 3,
+      "text": "This is important!",
+      "time": 74,
+      "videoId": 2,
+      "userId": 1
     }
   ],
   "users": [
