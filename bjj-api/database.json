@@ -705,11 +705,11 @@
       "userId": 1
     },
     {
-      "text": "This is an important detail!",
+      "id": 4,
+      "text": "This is a specific detail",
       "time": 200,
       "videoId": 18,
-      "userId": 1,
-      "id": 4
+      "userId": 1
     },
     {
       "text": "This is also an important detail.",
@@ -719,8 +719,8 @@
       "id": 5
     },
     {
-      "text": "Wow John sure likes to talk a lot",
-      "time": 787,
+      "text": "This is the most important detail",
+      "time": 396,
       "videoId": 18,
       "userId": 1,
       "id": 6
